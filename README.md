@@ -1,4 +1,4 @@
-# hcwx-h5
+# vue-template
 
 ## Project setup
 ```
