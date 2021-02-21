@@ -1,11 +1,11 @@
 <template>
   <div>
-    <input type="text" placeholder="请输入" onkeyup="this.value= this.value.match(/\d+(\.\d{0,2})?/) ? this.value.match(/\d+(\.\d{0,2})?/)[0] : ''" />
+    home
   </div>
 </template>
 
 <script>
-import { pureNum } from 'libs/utils'
+import { numberToChinese, changeToChinese } from 'libs/formatNumber'
 export default {
   data() {
     return {
@@ -13,7 +13,8 @@ export default {
     }
   },
   created () {
-    console.log(pureNum(21));
+    console.log(numberToChinese(32131.21));
+    console.log(changeToChinese('321312312'));
   }
 }
 </script>

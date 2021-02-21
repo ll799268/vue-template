@@ -108,6 +108,157 @@ export const timeFormat = time => {
   return timeStr;
 }
 
+/**
+ * 是否字符串
+ * @param {*} string 
+ */
+export const isString = (o) => {
+  return Object.prototype.toString.call(o).slice(8, -1) === 'String'
+}
+
+/**
+ * 是否数字
+ * @param {*} string 
+ */
+export const isNumber = (o) => {
+  return Object.prototype.toString.call(o).slice(8, -1) === 'Number'
+}
+
+/**
+ * 是否boolean
+ * @param {*} string 
+ */
+export const isBoolean = (o) => {
+  return Object.prototype.toString.call(o).slice(8, -1) === 'Boolean'
+}
+
+/**
+ * 是否函数
+ * @param {*} string 
+ */
+export const isFunction = (o) => {
+  return Object.prototype.toString.call(o).slice(8, -1) === 'Function'
+}
+
+/**
+ * 是否为null
+ * @param {*} string 
+ */
+export const isNull = (o) => {
+  return Object.prototype.toString.call(o).slice(8, -1) === 'Null'
+}
+
+/**
+ * 是否为undefined
+ * @param {*} string 
+ */
+export const isUndefined = (o) => {
+  return Object.prototype.toString.call(o).slice(8, -1) === 'Undefined'
+}
+
+/**
+ * 是否对象
+ * @param {*} string 
+ */
+export const isObj = (o) => {
+  return Object.prototype.toString.call(o).slice(8, -1) === 'Object'
+}
+
+/**
+ * 是否数组
+ * @param {*} string 
+ */
+export const isArray = (o) => {
+  return Object.prototype.toString.call(o).slice(8, -1) === 'Array'
+}
+
+/**
+ * 是否时间
+ * @param {*} string 
+ */
+export const isDate = (o) => {
+  return Object.prototype.toString.call(o).slice(8, -1) === 'Date'
+}
+
+/**
+ * 是否正则
+ * @param {*} string 
+ */
+export const isRegExp = (o) => {
+  return Object.prototype.toString.call(o).slice(8, -1) === 'RegExp'
+}
+
+/**
+ * 是否错误对象
+ * @param {*} string 
+ */
+export const isError = (o) => {
+  return Object.prototype.toString.call(o).slice(8, -1) === 'Error'
+}
+
+/**
+ * 是否Symbol函数
+ * @param {*} string 
+ */
+export const isSymbol = (o) => {
+  return Object.prototype.toString.call(o).slice(8, -1) === 'Symbol'
+}
+
+/**
+ * 是否Promise对象
+ * @param {*} string 
+ */
+export const isPromise = (o) => {
+  return Object.prototype.toString.call(o).slice(8, -1) === 'Promise'
+}
+
+/**
+ * 是否Set对象
+ * @param {*} string 
+ */
+export const isSet = string => {
+  return Object.prototype.toString.call(o).slice(8, -1) === 'Set'
+}
+
+/**
+ * 是否是微信浏览器
+ */
+export const isWeiXin = () => {
+  return ua.match(/microMessenger/i) == 'micromessenger'
+}
+
+/**
+ * 是否是移动端
+ */
+export const isDeviceMobile = () => {
+  return /android|webos|iphone|ipod|balckberry/i.test(ua)
+}
+
+/**
+ * 是否是QQ浏览器
+ */
+export const isQQBrowser = () => {
+  return !!ua.match(/mqqbrowser|qzone|qqbrowser|qbwebviewtype/i)
+}
+
+/**
+ * 是否为PC端
+ */
+export const isPC = () => {
+  var userAgentInfo = navigator.userAgent;
+  var Agents = ["Android", "iPhone",
+    "SymbianOS", "Windows Phone",
+    "iPad", "iPod"];
+  var flag = true;
+  for (var v = 0; v < Agents.length; v++) {
+    if (userAgentInfo.indexOf(Agents[v]) > 0) {
+      flag = false;
+      break;
+    }
+  }
+  return flag;
+}
+
 
 
 
@@ -393,7 +544,7 @@ export const debounce = (fn, wait) => {
  * @return {String}
  */
 export const clearSpaces = string => {
-  return string.replace(/[\u4e00-\u9fa5]/g,'');
+  return string.replace(/[\u4e00-\u9fa5]/g, '');
 }
 
 /**
@@ -402,9 +553,49 @@ export const clearSpaces = string => {
  * @return {String}
  */
 export const clearCNChars = string => {
-  return string.replace(/[\u4e00-\u9fa5]/g,'');
+  return string.replace(/[\u4e00-\u9fa5]/g, '');
 }
 
+/**
+ * 动态引入js
+ * @param {String} src 
+ */
+export const injectScript = src => {
+  let s = document.createElement('script');
+  s.type = 'text/JavaScript';
+  s.async = true;
+  s.src = src;
+  const t = document.getElementsByTagName('script')[0];
+  t.parentNode.insertBefore(s, t);
+}
+
+/**
+ * 根据url地址下载
+ * @param {String} url 
+ */
+export const download = url => {
+  var isChrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
+  var isSafari = navigator.userAgent.toLowerCase().indexOf('safari') > -1;
+  if (isChrome || isSafari) {
+    var link = document.createElement('a');
+    link.href = url;
+    if (link.download !== undefined) {
+      var fileName = url.substring(url.lastIndexOf('/') + 1, url.length);
+      link.download = fileName;
+    }
+    if (document.createEvent) {
+      var e = document.createEvent('MouseEvents');
+      e.initEvent('click', true, true);
+      link.dispatchEvent(e);
+      return true;
+    }
+  }
+  if (url.indexOf('?') === -1) {
+    url += '?download';
+  }
+  window.open(url, '_self');
+  return true;
+}
 
 
 
@@ -495,7 +686,7 @@ export const openWindow = (url, windowName, width, height) => {
   const y = parseInt(screen.height / 2.0) - height / 2.0;
   const isMSIE = navigator.appName == "Microsoft Internet Explorer";
   if (isMSIE) {
-    const p = "resizable=1,location=no,scrollbars=no,width=";
+    let p = "resizable=1,location=no,scrollbars=no,width=";
     p = p + width;
     p = p + ",height=";
     p = p + height;
@@ -729,6 +920,32 @@ export const compresscss = s => {
   return s == null ? "" : s[1];
 }
 
+/**
+ * el是否在视口范围内
+ * @param {Document} el 元素节点
+ * @param {Boolean} partiallyVisible 是否存在
+ */
+export const elementIsVisibleInViewport = (el, partiallyVisible = false) => {
+  const { top, left, bottom, right } = el.getBoundingClientRect();
+  const { innerHeight, innerWidth } = window;
+  return partiallyVisible
+    ? ((top > 0 && top < innerHeight) || (bottom > 0 && bottom < innerHeight)) &&
+    ((left > 0 && left < innerWidth) || (right > 0 && right < innerWidth))
+    : top >= 0 && left >= 0 && bottom <= innerHeight && right <= innerWidth;
+}
+
+/**
+ * 随机数范围
+ * @param {Number} min 最小数值
+ * @param {Number} max 最大数值
+ */
+export const random = (min, max) => {
+  if (arguments.length === 2) {
+      return Math.floor(min + Math.random() * ((max + 1) - min))
+  } else {
+      return null;
+  }
+}
 
 
 
@@ -802,7 +1019,7 @@ export const sortArrayZhName = (arr, name, empty) => {
 /**
  * 数组去重
  * @param {Array} arr
- * @return {Array} new arr
+ * @return {Array}
  */
 export const arrRemoveRepeat = arr => {
   return Array.from(new Set(arr))
@@ -811,7 +1028,7 @@ export const arrRemoveRepeat = arr => {
 /**
  * 多维数组扁平化
  * @param {Array} arr
- * @return {Array} new arr 
+ * @return {Array}
  */
 export const arrDeepFlat = arr => {
   return arr.flat(Infinity) || arr.toString().split(',')
@@ -820,7 +1037,7 @@ export const arrDeepFlat = arr => {
 /**
  * 用洗牌算法随机打乱一个数组
  * @param {Array} arr
- * @return {Array} new arr
+ * @return {Array}
  */
 export const shuffle = arr => {
   let leg = arr.length;
