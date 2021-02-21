@@ -862,8 +862,3 @@ export const formatToTree = arr => {
     return parent
   }
 }
-
-
-
-
-
