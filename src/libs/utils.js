@@ -7,14 +7,14 @@
  */
 export const formatTime = (times, ymd, hms) => {
   const oDate = new Date(times),
-   oYear = oDate.getFullYear()
+    oYear = oDate.getFullYear()
 
   let oMonth = oDate.getMonth() + 1,
-   oDay = oDate.getDate(),
-   oHour = oDate.getHours(),
-   oMin = oDate.getMinutes(),
-   oSec = oDate.getSeconds(),
-   oTime = '' // 最后拼接时间
+    oDay = oDate.getDate(),
+    oHour = oDate.getHours(),
+    oMin = oDate.getMinutes(),
+    oSec = oDate.getSeconds(),
+    oTime = '' // 最后拼接时间
 
   // 比较时分秒是否小于十
   if (oHour < 10) oHour = '0' + oHour
@@ -83,7 +83,7 @@ export const timeFormat = time => {
     minute = date.getMinutes(),
     curYear = curDate.getFullYear(),
     curHour = curDate.getHours();
-    
+
   let timeStr = '';
 
   if (year < curYear) {
@@ -123,7 +123,7 @@ export const formatChooseNumber = string => {
 
 /**
  * 校验是否为中国大陆第二代居民身份证
- * @param {String} string
+ * @param {String} string 校验中国大陆第二代居民身份证
  * @return {Boolean} result
  */
 export const isIDCard = string => {
@@ -132,7 +132,7 @@ export const isIDCard = string => {
 
 /**
  * 判断是否是邮箱地址
- * @param {String} email
+ * @param {String} email 校验邮箱地址
  * @return {Boolean} result
  */
 export const checkEmail = email => {
@@ -141,7 +141,7 @@ export const checkEmail = email => {
 
 /**
  * 校验是否为中国大陆邮政编码
- * @param {String} string
+ * @param {String} string 校验中国大陆邮政编码
  * @return {Boolean} result
  */
 export const isPostCode = string => {
@@ -150,7 +150,7 @@ export const isPostCode = string => {
 
 /**
  * 判断是否是手机号，只要是13,14,15,16,17,18,19开头即可
- * @param {String} phone
+ * @param {String} phone 校验手机号
  * @return {Boolean} result
  */
 export const checkTelphone = phone => {
@@ -160,7 +160,7 @@ export const checkTelphone = phone => {
 
 /**
  * 校验是否为中国大陆传真或固定电话号码
- * @param {String} telPhone 
+ * @param {String} telPhone 校验传真或固定电话号码
  * @return {Boolean} result
  */
 export const isTel = string => {
@@ -169,11 +169,40 @@ export const isTel = string => {
 
 /**
  * 校验是否为QQ号码(非0开头的5位-13位整数)
- * @param {String} value  
+ * @param {String} value 校验QQ号码
  * @return {Boolean} result
  */
 export const isQQ = value => {
   return /^[1-9][0-9]{4,12}$/.test(value.toString());
+}
+
+/**
+ * 校验字符的长度是否在规定的范围内
+ * @param {String} string  校验字符
+ * @param {String}  minInt 为在取值范围中最小的长度
+ * @param {String}  maxInt 为在取值范围中最大的长度
+ * @return {Boolean} result
+ */
+export const lengthRange = (string, minLength, maxLength) => {
+  return Boolean(string.length >= minLength && string.length <= maxLength);
+}
+
+/**
+ * 校验字符是否以字母开头
+ * @param {String} string  校验字符
+ * @return {Boolean} result
+ */
+export const letterBegin = string => {
+  return /^[A-z]/.test(string);
+}
+
+/**
+ * 校验字符是否为纯数字(整数) 字符全部为正整数(包含0)
+ * @param {String} string  校验字符
+ * @return {Boolean} result
+ */
+export const pureNum = string => {
+  return /^[0-9]*$/.test(string);
 }
 
 /**
@@ -209,11 +238,11 @@ export const isIP = string => {
  */
 export const isMobileNumber = number => {
   const i =
-      '134,135,136,137,138,139,150,151,152,157,158,159,187,188,147,182,183,184,178',
+    '134,135,136,137,138,139,150,151,152,157,158,159,187,188,147,182,183,184,178',
     n = '130,131,132,155,156,185,186,145,176',
     a = '133,153,180,181,189,177,173,170';
 
-   let o = number || '',
+  let o = number || '',
     r = o.substring(0, 3),
     d = o.substring(0, 4),
     s =
@@ -221,12 +250,12 @@ export const isMobileNumber = number => {
       (n.indexOf(r) >= 0
         ? '联通'
         : a.indexOf(r) >= 0
-        ? '电信'
-        : '1349' == d
-        ? '电信'
-        : i.indexOf(r) >= 0
-        ? '移动'
-        : '未知');
+          ? '电信'
+          : '1349' == d
+            ? '电信'
+            : i.indexOf(r) >= 0
+              ? '移动'
+              : '未知');
   return s;
 }
 
@@ -326,11 +355,11 @@ export const getPageHeight = () => {
  */
 export const throttle = (func, delay) => {
   let timer = null
-  return function() {
+  return function () {
     if (!timer) {
       timer = setTimeout(() => {
         func.apply(this, arguments)
-          // 或者直接 func()
+        // 或者直接 func()
         timer = null
       }, delay)
     }
@@ -344,15 +373,41 @@ export const throttle = (func, delay) => {
  */
 export const debounce = (fn, wait) => {
   let timeout = null
-  return function() {
+  return function () {
     if (!timeout) clearTimeout(timeout) // 如果多次触发将上次记录延迟清除掉
     timeout = setTimeout(() => {
       fn.apply(this, arguments)
-        // 或者直接 fn()
+      // 或者直接 fn()
       timeout = null
     }, wait)
   }
 }
+
+
+
+
+
+/**
+ * 清除所有空格
+ * @param {String} string 要清除的字符串
+ * @return {String}
+ */
+export const clearSpaces = string => {
+  return string.replace(/[\u4e00-\u9fa5]/g,'');
+}
+
+/**
+ * 清除所有中文字符(包括中文标点符号)
+ * @param {String} string 要清除的字符串
+ * @return {String}
+ */
+export const clearCNChars = string => {
+  return string.replace(/[\u4e00-\u9fa5]/g,'');
+}
+
+
+
+
 
 /**
  * 获取 url 后面通过?传参的参数
@@ -419,12 +474,12 @@ const scrollTop = (number = 0, time) => {
   let nowTop = document.body.scrollTop + document.documentElement.scrollTop // 获取当前滚动条位置
   let everTop = (number - nowTop) / spacingInex // 计算每次滑动的距离
   let scrollTimer = setInterval(() => {
-      if (spacingInex > 0) {
-        spacingInex--
-        scrollTop(nowTop += everTop)
-      } else {
-        clearInterval(scrollTimer)
-      }
+    if (spacingInex > 0) {
+      spacingInex--
+      scrollTop(nowTop += everTop)
+    } else {
+      clearInterval(scrollTimer)
+    }
   }, spacingTime)
 }
 
@@ -454,16 +509,16 @@ export const openWindow = (url, windowName, width, height) => {
       url,
       "ZyiisPopup",
       "top=" +
-        y +
-        ",left=" +
-        x +
-        ",scrollbars=" +
-        scrollbars +
-        ",dialog=yes,modal=yes,width=" +
-        width +
-        ",height=" +
-        height +
-        ",resizable=no"
+      y +
+      ",left=" +
+      x +
+      ",scrollbars=" +
+      scrollbars +
+      ",dialog=yes,modal=yes,width=" +
+      width +
+      ",height=" +
+      height +
+      ",resizable=no"
     );
     eval("try { win.resizeTo(width, height); } catch(e) { }");
     win.focus();
@@ -531,11 +586,11 @@ export const addFavorite = (sURL, sTitle) => {
  */
 export const searchAllWWW = () => {
   return document.documentElement.outerHTML
-  .match(
-    /(url\(|src=|href=)[\"\']*([^\"\'\(\)\<\>\[\] ]+)[\"\'\)]*|(http:\/\/[\w\-\.]+[^\"\'\(\)\<\>\[\] ]+)/gi
-  )
-  .join("\r\n")
-  .replace(/^(src=|href=|url\()[\"\']*|[\"\'\>\) ]*$/gim, '');
+    .match(
+      /(url\(|src=|href=)[\"\']*([^\"\'\(\)\<\>\[\] ]+)[\"\'\)]*|(http:\/\/[\w\-\.]+[^\"\'\(\)\<\>\[\] ]+)/gi
+    )
+    .join("\r\n")
+    .replace(/^(src=|href=|url\()[\"\']*|[\"\'\>\) ]*$/gim, '');
 }
 
 /**
@@ -687,8 +742,8 @@ export const compresscss = s => {
 
 export const deepClone = (origin, target) => {
   const tar = target || {},
-   toStr = Object.prototype.toString,
-   arrayType = '[object Array]'
+    toStr = Object.prototype.toString,
+    arrayType = '[object Array]'
 
   for (let k in origin) {
     if (origin.hasOwnProperty(k)) {
@@ -696,7 +751,7 @@ export const deepClone = (origin, target) => {
         tar[k] = toStr.call(origin[k]) === arrayType ? [] : {}
         deepClone(origin[k], tar[k])
       } else {
-      tar[k] = origin[k]
+        tar[k] = origin[k]
       }
     }
   }
@@ -718,7 +773,7 @@ export const deepClone = (origin, target) => {
 export const sortArrayZhName = (arr, name, empty) => {
 
   const letters = '*abcdefghjklmnopqrstwxyz'.split(''),
-   zh = '阿八嚓哒妸发旮哈讥咔垃痳拏噢妑七呥扨它穵夕丫帀'.split('')
+    zh = '阿八嚓哒妸发旮哈讥咔垃痳拏噢妑七呥扨它穵夕丫帀'.split('')
 
   let segs = [],
     curr = {}
@@ -736,7 +791,7 @@ export const sortArrayZhName = (arr, name, empty) => {
     });
     if (!empty || curr.data.length) {
       segs.push(curr)
-      curr.data.sort(function(a, b) {
+      curr.data.sort(function (a, b) {
         return a[name].localeCompare(b[name], 'zh')
       })
     }
@@ -783,24 +838,24 @@ export const shuffle = arr => {
  */
 export const formatToTree = arr => {
   const parent = arr.filter(item => !item.pid),
-        children = arr.filter(item => item.pid)
+    children = arr.filter(item => item.pid)
 
   return toTree(parent, children)
 
-  function toTree (parent, children) {
+  function toTree(parent, children) {
     parent.map(pItem => {
       children.map((cItem, index) => {
         if (pItem.id === cItem.pid) {
           let _c = JSON.parse(JSON.stringify(children))
           _c.splice(index, 1)
           toTree([cItem], _c)
-          
+
           if (pItem.children) {
             pItem.children.push(cItem)
           } else {
             pItem.children = [cItem]
           }
-          
+
         }
       })
     })

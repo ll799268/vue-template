@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { transform } from 'libs/utils'
+import { pureNum } from 'libs/utils'
 export default {
   data() {
     return {
@@ -13,7 +13,7 @@ export default {
     }
   },
   created () {
-    // console.log(transform('一万'));
+    console.log(pureNum(21));
   }
 }
 </script>
