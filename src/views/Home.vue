@@ -1,20 +1,19 @@
 <template>
-  <div>
+  <div ref="container" class="flex">
     home
   </div>
 </template>
 
 <script>
-import { numberToChinese, changeToChinese } from 'libs/formatNumber'
+import { formatChooseNumber } from 'libs/formatString'
 export default {
   data() {
     return {
      
     }
   },
-  created () {
-    console.log(numberToChinese(32131.21));
-    console.log(changeToChinese('321312312'));
+  mounted () {
+    // console.log(formatChooseNumber('32.12aaa'));
   }
 }
 </script>

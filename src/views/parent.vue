@@ -11,7 +11,7 @@
 
 <script>
 import arr from '@/mock/treeData'
-import { formatToTree } from 'libs/utils'
+import { formatToTree } from 'libs/formatArr'
 import childList from './child' 
 export default {
   name: 'parent',

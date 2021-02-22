@@ -42,3 +42,15 @@ export const stopBubble = e => {
     window.event.cancelBubble = true;
   }
 }
+
+/**
+ * requestAnimFrame兼容性方法
+ */
+export const requestAnimFrame = (() => {
+  return window.requestAnimationFrame ||
+    window.webkitRequestAnimationFrame ||
+    window.mozRequestAnimationFrame ||
+    function (callback) {
+      window.setTimeout(callback, 1000 / 60);
+    };
+})();
