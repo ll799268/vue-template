@@ -205,3 +205,16 @@ export const changeToChinese = Num => {
   }
   return newchar;
 }
+
+/**
+ * 随机数范围
+ * @param {Number} min 最小数值
+ * @param {Number} max 最大数值
+ */
+export const random = (min, max) => {
+  if (arguments.length === 2) {
+      return Math.floor(min + Math.random() * ((max + 1) - min))
+  } else {
+      return null;
+  }
+}
