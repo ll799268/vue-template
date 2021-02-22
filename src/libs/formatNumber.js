@@ -141,7 +141,7 @@ export const changeToChinese = Num => {
         tmpnewchar = tmpnewchar + '拾';
         break;
     }
-    
+
     newchar = tmpnewchar + newchar;
   }
 
@@ -213,8 +213,24 @@ export const changeToChinese = Num => {
  */
 export const random = (min, max) => {
   if (arguments.length === 2) {
-      return Math.floor(min + Math.random() * ((max + 1) - min))
+    return Math.floor(min + Math.random() * ((max + 1) - min))
   } else {
-      return null;
+    return null;
   }
+}
+
+/**
+ * 金额千分位分隔(保留两位小数)
+ * @param {String} num 
+ */
+export const thousandthsSlice = num => {
+  if (/[^0-9\.]/.test(num)) return 'invalid value';
+  num = num.replace(/^(\d*)$/, '$1.');
+  num = (num + '00').replace(/(\d*\.\d\d)\d*/, '$1');
+  num = num.replace('.', ',');
+  const re = /(\d)(\d{3},)/;
+  while (re.test(num))
+    num = num.replace(re, '$1,$2');
+  num = num.replace(/,(\d\d)$/, '.$1');
+  return '￥' + num.replace(/^\./, '0.')
 }

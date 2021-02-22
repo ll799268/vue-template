@@ -100,7 +100,7 @@ export const clearCNChars = string => {
  */
 export const chgCase = (sStr, iCase) => {
   if (
-    typeof sStr != "string" ||
+    typeof sStr != 'string' ||
     sStr.length <= 0 ||
     !(iCase === 0 || iCase == 1)
   ) {
@@ -133,6 +133,31 @@ export const chgCase = (sStr, iCase) => {
     }
   }
   return oRs.join('');
+}
+
+/**
+ * 判断字符串出现最多的字符，并统计次数
+ * @param {String} str 
+ */
+export const countStr = str => {
+  let obj = {};
+  for (let i = 0, l = str.length, k; i < l; i++) {
+    k = str.charAt(i);
+    if (obj[k]) {
+      obj[k]++;
+    } else {
+      obj[k] = 1;
+    }
+  }
+  let m = 0,
+    i = null;
+  for (let k in obj) {
+    if (obj[k] > m) {
+      m = obj[k];
+      i = k;
+    }
+  }
+  return i + ':' + m;
 }
 
 /**
