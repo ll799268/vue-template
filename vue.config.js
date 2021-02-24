@@ -10,13 +10,14 @@ module.exports = {
   chainWebpack: (config) => {
     config.resolve.alias
       .set('@', resolve('src'))
+      .set('api', resolve('src/api'))
       .set('assets', resolve('src/assets'))
-      .set('views', resolve('src/views'))
       .set('components', resolve('src/components'))
+      .set('config', resolve('src/config'))
+      .set('directives', resolve('src/directives'))
       .set('libs', resolve('src/libs'))
       .set('modules', resolve('src/modules'))
-      .set('api', resolve('src/api'))
-      .set('config', resolve('src/config'))
+      .set('views', resolve('src/views'))
   },
   devServer: {
     open: true,
