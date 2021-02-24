@@ -19,6 +19,7 @@ html {
     border: none;
     display: inline-block;
     vertical-align: middle;
+    // object-fit: cover; // 保持内容的原有宽高比例进行缩放
   }
   button,
   input {
