@@ -7,6 +7,9 @@ Vue.config.productionTip = false
 
 import 'assets/scss/index.scss'
 
+import Directives from 'directives'
+Vue.use(Directives)
+
 new Vue({
   router,
   store,
