@@ -8,8 +8,10 @@
 }
 html {
   height: 100%;
+  // -webkit-overflow-scrolling:touch // 页面滑动卡顿问题
   body {
     height: 100%;
+    // -webkit-overflow-scrolling:touch // 页面滑动卡顿问题
     // font-variant-east-asian: traditional; // 转换繁体字
   }
   img {
@@ -63,12 +65,15 @@ html {
 }
 
 // 修改 chrome 记住密码后自动填充表单的黄色背景
-input:-webkit-autofill,
-textarea:-webkit-autofill,
-select:-webkit-autofill {
-  box-shadow: 000px 1000px white inset;
-  border: none;
-}
+// input:-webkit-autofill,
+// textarea:-webkit-autofill,
+// select:-webkit-autofill {
+//   box-shadow: 000px 1000px white inset;
+//   border: none;
+// }
 
-// overflow:scroll 时不能平滑滚动的问题怎么处理
-// -webkit-overflow-scrolling:touch;
+// 中英文自动换行
+// word-break:break-all; // 只对英文起作用，以字母作为换行依据
+// word-wrap:break-word; // 只对英文起作用，以单词作为换行依据
+// white-space:pre-wrap; // 只对中文起作用，强制换行
+// white-space:nowrap; // 强制不换行，都起作用
