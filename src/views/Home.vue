@@ -1,5 +1,5 @@
 <template>
-  <div ref="container" class="flex clearfix">
+  <div ref="container" class="flex-center clearfix">
     home
   </div>
 </template>

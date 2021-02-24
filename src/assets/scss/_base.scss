@@ -1,3 +1,6 @@
+// 采用*{padding:0;margin:0;}这样的写法好处是写起来很简单，但是是通配符，需要把所有的标签都遍历一遍，
+// 当网站较大时，样式比较多，这样写就大大的加强了网站运行的负载，会使网站加载的时候需要很长一段时间，
+// 因此一般大型的网站都有分层次的一套初始化样式。
 * {
   padding: 0;
   margin: 0;
@@ -58,3 +61,14 @@ html {
     visibility: hidden;
   }
 }
+
+// 修改 chrome 记住密码后自动填充表单的黄色背景
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  box-shadow: 000px 1000px white inset;
+  border: none;
+}
+
+// overflow:scroll 时不能平滑滚动的问题怎么处理
+// -webkit-overflow-scrolling:touch;
