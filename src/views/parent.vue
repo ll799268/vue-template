@@ -12,9 +12,8 @@
 <script>
 import arr from '@/mock/treeData'
 import { formatToTree } from 'libs/formatArr'
-import childList from './child' 
+import childList from './Child' 
 export default {
-  name: 'parent',
   data() {
     return {
       navList: []
