@@ -1,15 +1,22 @@
-const parent = () => import ('views/parent.vue')
-const home = () => import ('views/home.vue')
+const Home = () => import ('views/Home.vue')
+const Directives = () => import ('views/Directives.vue')
+const Parent = () => import ('views/Parent.vue')
 
 const routes = [
   { 
     path: '/', 
-    component: home 
+    component: Home 
   },
   { 
-    path: '/parent', 
-    component: parent 
+    path: '/Directives', 
+    component: Directives 
+  },
+  { 
+    path: '/Parent', 
+    component: Parent 
   }
 ]
+
+console.log(routes);
 
 export default routes
