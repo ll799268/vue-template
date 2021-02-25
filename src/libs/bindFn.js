@@ -5,9 +5,9 @@
  * @param {Function} handle fn事件
  */
 export const addEvent = (el, evt, handle) => {
-  if (el.addEventListener) { //非ie和非ie9
+  if (el.addEventListener) { // 非ie和非ie9
     el.addEventListener(evt, handle, false);
-  } else if (el.attachEvent) { //ie6到ie8
+  } else if (el.attachEvent) { // ie6到ie8
     el.attachEvent('on' + evt, () => {
       handle.call(el);
     })
@@ -23,9 +23,9 @@ export const addEvent = (el, evt, handle) => {
  * @param {Function} handle fn事件
  */
 export const addEvent = (el, evt, handle) => {
-  if (el.removeEventListener) { //非ie和非ie9
+  if (el.removeEventListener) { // 非ie和非ie9
     el.removeEventListener(evt, handle, false);
-  } else if (el.detachEvent) { //ie6到ie8
+  } else if (el.detachEvent) { // ie6到ie8
     el.detachEvent('on' + evt, handle);
   } else {
     el['on' + evt] = null;

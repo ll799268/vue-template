@@ -37,7 +37,6 @@ export const sortArrayZhName = (arr, name, empty) => {
 
 /**
  * 数组去重
- * @param {Array} arr
  */
 export const arrRemoveRepeat = arr => {
   return Array.from(new Set(arr))
@@ -45,7 +44,6 @@ export const arrRemoveRepeat = arr => {
 
 /**
  * 多维数组扁平化
- * @param {Array} arr
  */
 export const arrDeepFlat = arr => {
   return arr.flat(Infinity) || arr.toString().split(',')
@@ -53,7 +51,6 @@ export const arrDeepFlat = arr => {
 
 /**
  * 用洗牌算法随机打乱一个数组
- * @param {Array} arr
  */
 export const shuffle = arr => {
   let leg = arr.length;

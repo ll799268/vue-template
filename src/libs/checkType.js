@@ -149,113 +149,113 @@ export const isQQ = value => {
 
 /**
  * 是否字符串
- * @param {*} string 
+ * @param {*} 
  */
-export const isString = (o) => {
+export const isString = o => {
   return Object.prototype.toString.call(o).slice(8, -1) === 'String'
 }
 
 /**
  * 是否数字
- * @param {*} string 
+ * @param {*} 
  */
-export const isNumber = (o) => {
+export const isNumber = o => {
   return Object.prototype.toString.call(o).slice(8, -1) === 'Number'
 }
 
 /**
  * 是否boolean
- * @param {*} string 
+ * @param {*} 
  */
-export const isBoolean = (o) => {
+export const isBoolean = o => {
   return Object.prototype.toString.call(o).slice(8, -1) === 'Boolean'
 }
 
 /**
  * 是否函数
- * @param {*} string 
+ * @param {*} 
  */
-export const isFunction = (o) => {
+export const isFunction = o => {
   return Object.prototype.toString.call(o).slice(8, -1) === 'Function'
 }
 
 /**
  * 是否为null
- * @param {*} string 
+ * @param {*} 
  */
-export const isNull = (o) => {
+export const isNull = o => {
   return Object.prototype.toString.call(o).slice(8, -1) === 'Null'
 }
 
 /**
  * 是否为undefined
- * @param {*} string 
+ * @param {*} 
  */
-export const isUndefined = (o) => {
+export const isUndefined = o => {
   return Object.prototype.toString.call(o).slice(8, -1) === 'Undefined'
 }
 
 /**
  * 是否对象
- * @param {*} string 
+ * @param {*} 
  */
-export const isObj = (o) => {
+export const isObj = o => {
   return Object.prototype.toString.call(o).slice(8, -1) === 'Object'
 }
 
 /**
  * 是否数组
- * @param {*} string 
+ * @param {*} 
  */
-export const isArray = (o) => {
+export const isArray = o => {
   return Object.prototype.toString.call(o).slice(8, -1) === 'Array'
 }
 
 /**
  * 是否时间
- * @param {*} string 
+ * @param {*} 
  */
-export const isDate = (o) => {
+export const isDate = o => {
   return Object.prototype.toString.call(o).slice(8, -1) === 'Date'
 }
 
 /**
  * 是否正则
- * @param {*} string 
+ * @param {*} 
  */
-export const isRegExp = (o) => {
+export const isRegExp = o => {
   return Object.prototype.toString.call(o).slice(8, -1) === 'RegExp'
 }
 
 /**
  * 是否错误对象
- * @param {*} string 
+ * @param {*} 
  */
-export const isError = (o) => {
+export const isError = o => {
   return Object.prototype.toString.call(o).slice(8, -1) === 'Error'
 }
 
 /**
  * 是否Symbol函数
- * @param {*} string 
+ * @param {*} 
  */
-export const isSymbol = (o) => {
+export const isSymbol = o => {
   return Object.prototype.toString.call(o).slice(8, -1) === 'Symbol'
 }
 
 /**
  * 是否Promise对象
- * @param {*} string 
+ * @param {*} 
  */
-export const isPromise = (o) => {
+export const isPromise = o => {
   return Object.prototype.toString.call(o).slice(8, -1) === 'Promise'
 }
 
 /**
  * 是否Set对象
- * @param {*} string 
+ * @param {*} 
  */
-export const isSet = (o) => {
+export const isSet = o => {
   return Object.prototype.toString.call(o).slice(8, -1) === 'Set'
 }
 

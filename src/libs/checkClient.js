@@ -1,25 +1,4 @@
 /**
- * 是否是微信浏览器
- */
-export const isWeiXin = () => {
-  return ua.match(/microMessenger/i) == 'micromessenger'
-}
-
-/**
- * 是否是移动端
- */
-export const isDeviceMobile = () => {
-  return /android|webos|iphone|ipod|balckberry/i.test(ua)
-}
-
-/**
- * 是否是QQ浏览器
- */
-export const isQQBrowser = () => {
-  return !!ua.match(/mqqbrowser|qzone|qqbrowser|qbwebviewtype/i)
-}
-
-/**
  * 是否为PC端
  */
 export const isPC = () => {
@@ -44,10 +23,10 @@ export const isPC = () => {
 export const checkBrowser = () => {
   const u = navigator.userAgent
   const obj = {
-    trident: u.indexOf('Trident') > -1, //IE内核
-    presto: u.indexOf('Presto') > -1, //opera内核
-    webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
-    gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+    trident: u.indexOf('Trident') > -1, // IE内核
+    presto: u.indexOf('Presto') > -1, // opera内核
+    webKit: u.indexOf('AppleWebKit') > -1, // 苹果、谷歌内核
+    gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, // 火狐内核
   }
   return Object.keys(obj)[Object.values(obj).indexOf(true)]
 };
@@ -74,7 +53,7 @@ export const checkWeixinQqUc = () => {
   const u = navigator.userAgent;
   const obj = {
     weixin: u.indexOf('MicroMessenger') > -1, //是否微信
-    qq: u.match(/QQ/i) == 'qq' && !u.indexOf('MQQBrowser') > -1, //是否QQ
+    qq: u.match(/QQ/i) == 'QQBrowserLite' && !u.indexOf('MQQBrowser') > -1, //是否QQ
     uc: u.indexOf('UCBrowser') > -1
   }
   return Object.keys(obj)[Object.values(obj).indexOf(true)]

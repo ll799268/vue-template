@@ -7,13 +7,15 @@
 </template>
 
 <script>
-import 'assets/scss/index.scss'
-import { countStr } from 'libs/formatString'
+import { letterBegin } from 'libs/formatString'
 export default {
   data() {
     return {
-     
+      str: 'a12'
     }
+  },
+  created () {
+    console.log(letterBegin(this.str));
   }
 }
 </script>

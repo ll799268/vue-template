@@ -1,4 +1,4 @@
-export default cookie = {
+const cookie = {
   set: function (name, value, time) {
     document.cookie = name + '=' + value + '; max-age=' + time;
     return this;
@@ -17,3 +17,5 @@ export default cookie = {
     return undefined;
   }
 }
+
+export default cookie

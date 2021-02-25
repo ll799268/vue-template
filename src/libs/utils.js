@@ -142,23 +142,6 @@ export const openWindow = (url, windowName, width, height) => {
 }
 
 /**
- * 加入收藏夹
- * @param {String} sURL 域名
- * @param {String} sTitle 标题
- */
-export const addFavorite = (sURL, sTitle) => {
-  try {
-    window.external.addFavorite(sURL, sTitle);
-  } catch (e) {
-    try {
-      window.sidebar.addPanel(sTitle, sURL, '');
-    } catch (e) {
-      alert('加入收藏失败，请使用Ctrl+D进行添加');
-    }
-  }
-}
-
-/**
  * 对象深度克隆
  * @origin 原对象
  * @target 目标对象

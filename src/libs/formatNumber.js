@@ -221,7 +221,7 @@ export const random = (min, max) => {
 
 /**
  * 金额千分位分隔(保留两位小数)
- * @param {String} num 
+ * @param {Number} num 
  */
 export const thousandthsSlice = num => {
   if (/[^0-9\.]/.test(num)) return 'invalid value';

@@ -44,6 +44,7 @@ export const insertStr = (soure, index, newStr) => {
 /**
  * 字符串中提取数字(不包含小数点)
  * @param {String} string 要截取的字符串
+ * @returns {Number} 提取的数字
  */
 export const formatChooseNumber = string => {
   return string.replace(/[^0-9]/g, '')
@@ -51,9 +52,9 @@ export const formatChooseNumber = string => {
 
 /**
  * 校验字符的长度是否在规定的范围内
- * @param {String} string  校验字符
- * @param {String}  minInt 为在取值范围中最小的长度
- * @param {String}  maxInt 为在取值范围中最大的长度
+ * @param {String} string 校验字符
+ * @param {String} minInt 为在取值范围中最小的长度
+ * @param {String} maxInt 为在取值范围中最大的长度
  */
 export const lengthRange = (string, minLength, maxLength) => {
   return Boolean(string.length >= minLength && string.length <= maxLength);
@@ -78,7 +79,6 @@ export const pureNum = string => {
 /**
  * 清除所有空格
  * @param {String} string 要清除的字符串
- * @return {String}
  */
 export const clearSpaces = string => {
   return string.replace(/[\u4e00-\u9fa5]/g, '');
@@ -87,7 +87,6 @@ export const clearSpaces = string => {
 /**
  * 清除所有中文字符(包括中文标点符号)
  * @param {String} string 要清除的字符串
- * @return {String}
  */
 export const clearCNChars = string => {
   return string.replace(/[\u4e00-\u9fa5]/g, '');
@@ -137,7 +136,6 @@ export const chgCase = (sStr, iCase) => {
 
 /**
  * 判断字符串出现最多的字符，并统计次数
- * @param {String} str 
  */
 export const countStr = str => {
   let obj = {};
@@ -162,7 +160,7 @@ export const countStr = str => {
 
 /**
  * 检测密码强度
- * @param {String} str 
+ * @param {Number} 
  */
 export const checkPwd = str => {
   let Lv = 0;
