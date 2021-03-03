@@ -13,6 +13,27 @@ export const getQueryString = name => {
 }
 
 /**
+ * 获取url后面通过?传参的参数
+ * @param {String} param 
+ */
+export const searchUrlParamsVal = (param = null) => {
+  const href = window.location.href,
+    params = href.slice(href.indexOf('?'), href.length).replace(/\?/, ''),
+    paramsArr = params.split('&');
+  let paramsObj = {} 
+
+  paramsArr.map(item => {
+    const itemIdx = item.indexOf('='),
+      itemKey = item.slice(0, itemIdx),
+      itemVal = item.slice(itemIdx + 1, item.length);
+
+    paramsObj[itemKey] = itemVal
+  })
+
+  return paramsObj[param] || null
+}
+
+/**
  * 检验url链接是否有效
  * @param {String} URL
  * @return {boolean} result
