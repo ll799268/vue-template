@@ -4,8 +4,7 @@
         ? document.documentElement.clientWidth
         : document.body.clientWidth,
       r = 1255,
-      b = Element.extend(document.body),
-      classname = b.className;
+      b = Element.extend(document.body);
     if (w < r) {
       //当窗体的宽度小于1255的时候执行相应的操作
     } else {
