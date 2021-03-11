@@ -13,9 +13,6 @@ export default {
     return {
       str: 'a12'
     }
-  },
-  created () {
-    console.log(letterBegin(this.str));
   }
 }
 </script>
