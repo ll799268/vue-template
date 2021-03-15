@@ -8,26 +8,26 @@ export const changeCase = (str, type) => {
   switch (type) {
     case 1:
       return str.replace(/\b\w+\b/g, word => {
-        return word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase();
-      });
+        return word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase()
+      })
     case 2:
       return str.replace(/\b\w+\b/g, word => {
-        return word.substring(0, 1).toLowerCase() + word.substring(1).toUpperCase();
-      });
+        return word.substring(0, 1).toLowerCase() + word.substring(1).toUpperCase()
+      })
     case 3:
       return str.split('').map(word => {
         if (/[a-z]/.test(word)) {
-          return word.toUpperCase();
+          return word.toUpperCase()
         } else {
           return word.toLowerCase()
         }
       }).join('')
     case 4:
-      return str.toUpperCase();
+      return str.toUpperCase()
     case 5:
-      return str.toLowerCase();
+      return str.toLowerCase()
     default:
-      return str;
+      return str
   }
 }
 
@@ -38,7 +38,7 @@ export const changeCase = (str, type) => {
  * @param {*} newStr 要插入的字符串
  */
 export const insertStr = (soure, index, newStr) => {
-  return soure.slice(0, index) + newStr + soure.slice(index);
+  return soure.slice(0, index) + newStr + soure.slice(index)
 }
 
 /**
@@ -57,7 +57,7 @@ export const formatChooseNumber = string => {
  * @param {String} maxInt 为在取值范围中最大的长度
  */
 export const lengthRange = (string, minLength, maxLength) => {
-  return Boolean(string.length >= minLength && string.length <= maxLength);
+  return Boolean(string.length >= minLength && string.length <= maxLength)
 }
 
 /**
@@ -65,7 +65,7 @@ export const lengthRange = (string, minLength, maxLength) => {
  * @param {String} string  校验字符
  */
 export const letterBegin = string => {
-  return /^[A-z]/.test(string);
+  return /^[A-z]/.test(string)
 }
 
 /**
@@ -73,7 +73,7 @@ export const letterBegin = string => {
  * @param {String} string  校验字符
  */
 export const pureNum = string => {
-  return /^[0-9]*$/.test(string);
+  return /^[0-9]*$/.test(string)
 }
 
 /**
@@ -81,7 +81,7 @@ export const pureNum = string => {
  * @param {String} string 要清除的字符串
  */
 export const clearSpaces = string => {
-  return string.replace(/[\u4e00-\u9fa5]/g, '');
+  return string.replace(/[\u4e00-\u9fa5]/g, '')
 }
 
 /**
@@ -89,7 +89,7 @@ export const clearSpaces = string => {
  * @param {String} string 要清除的字符串
  */
 export const clearCNChars = string => {
-  return string.replace(/[\u4e00-\u9fa5]/g, '');
+  return string.replace(/[\u4e00-\u9fa5]/g, '')
 }
 
 /**
@@ -103,7 +103,7 @@ export const chgCase = (sStr, iCase) => {
     sStr.length <= 0 ||
     !(iCase === 0 || iCase == 1)
   ) {
-    return sStr;
+    return sStr
   }
   let i,
     oRs = [],
@@ -111,51 +111,51 @@ export const chgCase = (sStr, iCase) => {
   if (iCase) {
     // 半 -> 全
     for (i = 0; i < sStr.length; i += 1) {
-      iCode = sStr.charCodeAt(i);
+      iCode = sStr.charCodeAt(i)
       if (iCode == 32) {
-        iCode = 12288;
+        iCode = 12288
       } else if (iCode < 127) {
-        iCode += 65248;
+        iCode += 65248
       }
-      oRs.push(String.fromCharCode(iCode));
+      oRs.push(String.fromCharCode(iCode))
     }
   } else {
     // 全 -> 半
     for (i = 0; i < sStr.length; i += 1) {
-      iCode = sStr.charCodeAt(i);
+      iCode = sStr.charCodeAt(i)
       if (iCode == 12288) {
-        iCode = 32;
+        iCode = 32
       } else if (iCode > 65280 && iCode < 65375) {
-        iCode -= 65248;
+        iCode -= 65248
       }
-      oRs.push(String.fromCharCode(iCode));
+      oRs.push(String.fromCharCode(iCode))
     }
   }
-  return oRs.join('');
+  return oRs.join('')
 }
 
 /**
  * 判断字符串出现最多的字符，并统计次数
  */
 export const countStr = str => {
-  let obj = {};
+  let obj = {}
   for (let i = 0, l = str.length, k; i < l; i++) {
-    k = str.charAt(i);
+    k = str.charAt(i)
     if (obj[k]) {
-      obj[k]++;
+      obj[k]++
     } else {
-      obj[k] = 1;
+      obj[k] = 1
     }
   }
   let m = 0,
     i = null;
   for (let k in obj) {
     if (obj[k] > m) {
-      m = obj[k];
-      i = k;
+      m = obj[k]
+      i = k
     }
   }
-  return i + ':' + m;
+  return i + ':' + m
 }
 
 /**
@@ -179,5 +179,5 @@ export const checkPwd = str => {
   if (/[\.|-|_]/.test(str)) {
     Lv++
   }
-  return Lv;
+  return Lv
 }

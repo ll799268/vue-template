@@ -5,15 +5,15 @@ export const isPC = () => {
   const userAgentInfo = navigator.userAgent,
    Agents = ["Android", "iPhone",
     "SymbianOS", "Windows Phone",
-    "iPad", "iPod"];
-  let flag = true;
+    "iPad", "iPod"]
+  let flag = true
   for (let v = 0; v < Agents.length; v++) {
     if (userAgentInfo.indexOf(Agents[v]) > 0) {
-      flag = false;
-      break;
+      flag = false
+      break
     }
   }
-  return flag;
+  return flag
 }
 
 /**
@@ -36,7 +36,7 @@ export const checkBrowser = () => {
  * @return {String} result
  */
 export const checkIosAndroidIpad = () => {
-  const u = navigator.userAgent;
+  const u = navigator.userAgent
   const obj = {
     ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
     android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
@@ -50,7 +50,7 @@ export const checkIosAndroidIpad = () => {
  * @return {String} result
  */
 export const checkWeixinQqUc = () => {
-  const u = navigator.userAgent;
+  const u = navigator.userAgent
   const obj = {
     weixin: u.indexOf('MicroMessenger') > -1, //是否微信
     qq: u.match(/QQ/i) == 'QQBrowserLite' && !u.indexOf('MQQBrowser') > -1, //是否QQ
@@ -64,10 +64,10 @@ export const checkWeixinQqUc = () => {
  * @return {String} result
  */
 export const checkIsIphoneX = () => {
-  const u = navigator.userAgent;
+  const u = navigator.userAgent
   const isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
   if (isIOS && screen.height >= 812) {
-    return true;
+    return true
   }
 };
 

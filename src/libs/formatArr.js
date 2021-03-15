@@ -18,13 +18,13 @@ export const sortArrayZhName = (arr, name, empty) => {
     curr = {
       letter: item,
       data: []
-    };
+    }
     arr.forEach((item) => {
       if ((!zh[i - 1] || zh[i - 1].localeCompare(item[name], 'zh') <= 0) &&
         item[name].localeCompare(zh[i], 'zh') === -1) {
-        curr.data.push(item);
+        curr.data.push(item)
       }
-    });
+    })
     if (!empty || curr.data.length) {
       segs.push(curr)
       curr.data.sort(function (a, b) {
@@ -55,11 +55,11 @@ export const arrDeepFlat = arr => {
 export const shuffle = arr => {
   let leg = arr.length;
   while (leg) {
-    const i = Math.floor(Math.random() * leg--);
-    [arr[leg], arr[i]] = [arr[i], arr[leg]];
+    const i = Math.floor(Math.random() * leg--)
+    [arr[leg], arr[i]] = [arr[i], arr[leg]]
   }
-  return arr;
-};
+  return arr
+}
 
 /**
  * 树形菜单的制作

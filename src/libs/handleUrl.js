@@ -42,18 +42,18 @@ export const getUrlState = URL => {
   let xmlhttp = new XMLHttpRequest('microsoft.xmlhttp');
   xmlhttp.open('GET', URL, false);
   try {
-    xmlhttp.send();
+    xmlhttp.send()
   } catch (e) {
   } finally {
     const result = xmlhttp.responseText;
     if (result) {
       if (xmlhttp.Status == 200) {
-        return true;
+        return true
       } else {
-        return false;
+        return false
       }
     } else {
-      return false;
+      return false
     }
   }
 }

@@ -14,27 +14,27 @@ export const formatTime = (times, ymd, hms) => {
     oHour = oDate.getHours(),
     oMin = oDate.getMinutes(),
     oSec = oDate.getSeconds(),
-    oTime = '' // 最后拼接时间
+    oTime = ''; // 最后拼接时间
 
   // 比较日期是否小于十
-  oMonth = ('0' + oMonth).slice(-2);
-  oDay = ('0' + oDay).slice(-2);
+  oMonth = ('0' + oMonth).slice(-2)
+  oDay = ('0' + oDay).slice(-2)
 
   // 比较时分秒是否小于十
-  oHour = ('0' + oHour).slice(-2);
-  oMin = ('0' + oMin).slice(-2);
-  oSec = ('0' + oSec).slice(-2);
+  oHour = ('0' + oHour).slice(-2)
+  oMin = ('0' + oMin).slice(-2)
+  oSec = ('0' + oSec).slice(-2)
 
   // 年月日格式
   switch (ymd) {
     case 'yyyy-mm-dd':
-      oTime = oYear + '-' + oMonth + '-' + oDay + ' ';
+      oTime = oYear + '-' + oMonth + '-' + oDay + ' '
       break
     case 'yyyy/mm/dd':
-      oTime = oYear + '/' + oMonth + '/' + oDay + ' ';
+      oTime = oYear + '/' + oMonth + '/' + oDay + ' '
       break
     case 'yyyy年mm月dd日':
-      oTime = oYear + '年' + oMonth + '月' + oDay + '日 ';
+      oTime = oYear + '年' + oMonth + '月' + oDay + '日 '
       break
     default:
       break
@@ -42,13 +42,13 @@ export const formatTime = (times, ymd, hms) => {
   // 时分秒格式
   switch (hms) {
     case 'hh':
-      oTime = oTime + oHour;
+      oTime = oTime + oHour
       break
     case 'hh:mm':
-      oTime = oTime + oHour + ':' + oMin;
+      oTime = oTime + oHour + ':' + oMin
       break
     case 'hh:mm:ss':
-      oTime = oTime + oHour + ':' + oMin + ':' + oSec;
+      oTime = oTime + oHour + ':' + oMin + ':' + oSec
       break
   }
   return oTime
@@ -85,23 +85,23 @@ export const timeFormat = time => {
   let timeStr = '';
 
   if (year < curYear) {
-    timeStr = year + '年' + month + '月' + day + '日 ' + hour + ':' + minute;
+    timeStr = year + '年' + month + '月' + day + '日 ' + hour + ':' + minute
   } else {
     const pastTime = curDate - date,
-      pastH = pastTime / 3600000;
+      pastH = pastTime / 3600000
 
     if (pastH > curHour) {
-      timeStr = month + '月' + day + '日 ' + hour + ':' + minute;
+      timeStr = month + '月' + day + '日 ' + hour + ':' + minute
     } else if (pastH >= 1) {
-      timeStr = '今天 ' + hour + ':' + minute;
+      timeStr = '今天 ' + hour + ':' + minute
     } else {
-      const pastM = curDate.getMinutes() - minute;
+      const pastM = curDate.getMinutes() - minute
       if (pastM > 1) {
-        timeStr = pastM + '分钟前';
+        timeStr = pastM + '分钟前'
       } else {
-        timeStr = '刚刚';
+        timeStr = '刚刚'
       }
     }
   }
-  return timeStr;
+  return timeStr
 }

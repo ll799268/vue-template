@@ -8,7 +8,7 @@ export const searchAllWWW = () => {
       /(url\(|src=|href=)[\"\']*([^\"\'\(\)\<\>\[\] ]+)[\"\'\)]*|(http:\/\/[\w\-\.]+[^\"\'\(\)\<\>\[\] ]+)/gi
     )
     .join("\r\n")
-    .replace(/^(src=|href=|url\()[\"\']*|[\"\'\>\) ]*$/gim, '');
+    .replace(/^(src=|href=|url\()[\"\']*|[\"\'\>\) ]*$/gim, '')
 }
 
 /**
@@ -17,10 +17,10 @@ export const searchAllWWW = () => {
  * @return {String} 压缩后的css代码 
  */
 export const compresscss = s => {
-  s = s.replace(/\/\*(.|\n)*?\*\//g, ""); //删除注释
-  s = s.replace(/\s*([\{\}\:\;\,])\s*/g, "$1");
-  s = s.replace(/\,[\s\.\#\d]*\{/g, "{"); //容错处理
-  s = s.replace(/;\s*;/g, ";"); //清除连续分号
-  s = s.match(/^\s*(\S+(\s+\S+)*)\s*$/); //去掉首尾空白
-  return s == null ? "" : s[1];
+  s = s.replace(/\/\*(.|\n)*?\*\//g, "") //删除注释
+  s = s.replace(/\s*([\{\}\:\;\,])\s*/g, "$1")
+  s = s.replace(/\,[\s\.\#\d]*\{/g, "{") //容错处理
+  s = s.replace(/;\s*;/g, ";") //清除连续分号
+  s = s.match(/^\s*(\S+(\s+\S+)*)\s*$/) //去掉首尾空白
+  return s == null ? "" : s[1]
 }

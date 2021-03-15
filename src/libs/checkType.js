@@ -15,41 +15,41 @@ export const type = para => {
 export const checkStr = (str, type) => {
   switch (type) {
     case 'phone':   // 手机号码
-      return /^1[3|4|5|6|7|8|9][0-9]{9}$/.test(str);
+      return /^1[3|4|5|6|7|8|9][0-9]{9}$/.test(str)
     case 'tel':     // 座机
-      return /^(0\d{2,3}-\d{7,8})(-\d{1,4})?$/.test(str);
+      return /^(0\d{2,3}-\d{7,8})(-\d{1,4})?$/.test(str)
     case 'card':    // 身份证
-      return /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/.test(str);
+      return /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/.test(str)
     case 'pwd':     // 密码以字母开头，长度在6~18之间，只能包含字母、数字和下划线
       return /^[a-zA-Z]\w{5,17}$/.test(str)
     case 'postal':  // 邮政编码
-      return /[1-9]\d{5}(?!\d)/.test(str);
+      return /[1-9]\d{5}(?!\d)/.test(str)
     case 'QQ':      // QQ号
-      return /^[1-9][0-9]{4,9}$/.test(str);
+      return /^[1-9][0-9]{4,9}$/.test(str)
     case 'email':   // 邮箱
-      return /^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/.test(str);
+      return /^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/.test(str)
     case 'money':   // 金额(小数点2位)
-      return /^\d*(?:\.\d{0,2})?$/.test(str);
+      return /^\d*(?:\.\d{0,2})?$/.test(str)
     case 'URL':     // 网址
       return /(http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&:/~\+#]*[\w\-\@?^=%&/~\+#])?/.test(str)
     case 'IP':      // IP
-      return /((?:(?:25[0-5]|2[0-4]\\d|[01]?\\d?\\d)\\.){3}(?:25[0-5]|2[0-4]\\d|[01]?\\d?\\d))/.test(str);
+      return /((?:(?:25[0-5]|2[0-4]\\d|[01]?\\d?\\d)\\.){3}(?:25[0-5]|2[0-4]\\d|[01]?\\d?\\d))/.test(str)
     case 'date':    // 日期时间
       return /^(\d{4})\-(\d{2})\-(\d{2}) (\d{2})(?:\:\d{2}|:(\d{2}):(\d{2}))$/.test(str) || /^(\d{4})\-(\d{2})\-(\d{2})$/.test(str)
     case 'number':  // 数字
-      return /^[0-9]$/.test(str);
+      return /^[0-9]$/.test(str)
     case 'english': // 英文
-      return /^[a-zA-Z]+$/.test(str);
+      return /^[a-zA-Z]+$/.test(str)
     case 'chinese': // 中文
-      return /^[\\u4E00-\\u9FA5]+$/.test(str);
+      return /^[\\u4E00-\\u9FA5]+$/.test(str)
     case 'lower':   // 小写
-      return /^[a-z]+$/.test(str);
+      return /^[a-z]+$/.test(str)
     case 'upper':   // 大写
-      return /^[A-Z]+$/.test(str);
+      return /^[A-Z]+$/.test(str)
     case 'HTML':    // HTML标记
-      return /<('[^']*'|'[^']*'|[^''>])*>/.test(str);
+      return /<('[^']*'|'[^']*'|[^''>])*>/.test(str)
     default:
-      return false;
+      return false
   }
 }
 
@@ -72,22 +72,22 @@ export const isCardID = sId => {
 
   // 出生日期验证
   const sBirthday = (sId.substr(6, 4) + '-' + Number(sId.substr(10, 2)) + '-' + Number(sId.substr(12, 2))).replace(/-/g, '/'),
-    d = new Date(sBirthday)
+    d = new Date(sBirthday);
   if (sBirthday != (d.getFullYear() + '/' + (d.getMonth() + 1) + '/' + d.getDate())) {
     console.error('身份证上的出生日期非法')
     return false
   }
 
   // 身份证号码校验
-  let sum = 0;
+  let sum = 0
   const weights = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2],
     codes = '10X98765432'
 
   for (let i = 0; i < sId.length - 1; i++) {
-    sum += sId[i] * weights[i];
+    sum += sId[i] * weights[i]
   }
   
-  const last = codes[sum % 11]; // 计算出来的最后一位身份证号码
+  const last = codes[sum % 11] // 计算出来的最后一位身份证号码
   if (sId[sId.length - 1] != last) {
     console.error('你输入的身份证号非法')
     return false
@@ -102,7 +102,7 @@ export const isCardID = sId => {
  * @return {Boolean} result
  */
 export const isIDCard = string => {
-  return /^[1-9][0-9]{5}(18|19|(2[0-9]))[0-9]{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)[0-9]{3}[0-9Xx]$/.test(string);
+  return /^[1-9][0-9]{5}(18|19|(2[0-9]))[0-9]{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)[0-9]{3}[0-9Xx]$/.test(string)
 }
 
 /**
@@ -119,7 +119,7 @@ export const checkEmail = email => {
  * @param {String} string 校验中国大陆邮政编码
  */
 export const isPostCode = string => {
-  return /^[1-9][0-9]{5}$/.test(string.toString());
+  return /^[1-9][0-9]{5}$/.test(string.toString())
 }
 
 /**
@@ -127,7 +127,7 @@ export const isPostCode = string => {
  * @param {String} phone 校验手机号
  */
 export const checkTelphone = phone => {
-  const reg = /^((\+|00)86)?1[3-9]\d{9}$/g
+  const reg = /^((\+|00)86)?1[3-9]\d{9}$/g;
   if (reg.test(phone)) return true
 }
 
@@ -136,7 +136,7 @@ export const checkTelphone = phone => {
  * @param {String} telPhone 校验传真或固定电话号码
  */
 export const isTel = telPhone => {
-  return /^([0-9]{3,4})?[0-9]{7,8}$|^([0-9]{3,4}-)?[0-9]{7,8}$/.test(telPhone);
+  return /^([0-9]{3,4})?[0-9]{7,8}$|^([0-9]{3,4}-)?[0-9]{7,8}$/.test(telPhone)
 }
 
 /**
@@ -144,7 +144,7 @@ export const isTel = telPhone => {
  * @param {String} value 校验QQ号码
  */
 export const isQQ = value => {
-  return /^[1-9][0-9]{4,12}$/.test(value.toString());
+  return /^[1-9][0-9]{4,12}$/.test(value.toString())
 }
 
 /**
@@ -268,7 +268,7 @@ export const isSet = o => {
  * @param {String} string
  */
 export const isURL = string => {
-  return /^(https:\/\/|http:\/\/|ftp:\/\/|rtsp:\/\/|mms:\/\/)?[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+[\/=\?%\-&_~`@[\]\':+!]*([^<>\"\"])*$/.test(string);
+  return /^(https:\/\/|http:\/\/|ftp:\/\/|rtsp:\/\/|mms:\/\/)?[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+[\/=\?%\-&_~`@[\]\':+!]*([^<>\"\"])*$/.test(string)
 }
 
 /**
@@ -279,7 +279,7 @@ export const isURL = string => {
  * @param {String} string
  */
 export const isIP = string => {
-  return /^((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])$/.test(string);
+  return /^((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])$/.test(string)
 }
 
 /**
@@ -306,5 +306,5 @@ export const isMobileNumber = number => {
             : i.indexOf(r) >= 0
               ? '移动'
               : '未知');
-  return s;
+  return s
 }

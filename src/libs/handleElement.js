@@ -41,12 +41,12 @@ export const removeClass = (el, className) => {
  * @param {Boolean} partiallyVisible 包含上下
  */
 export const elementIsVisibleInViewport = (el, partiallyVisible = false) => {
-  const { top, left, bottom, right } = el.getBoundingClientRect();
-  const { innerHeight, innerWidth } = window;
+  const { top, left, bottom, right } = el.getBoundingClientRect(),
+        { innerHeight, innerWidth } = window;
   return partiallyVisible
     ? ((top > 0 && top < innerHeight) || (bottom > 0 && bottom < innerHeight)) &&
     ((left > 0 && left < innerWidth) || (right > 0 && right < innerWidth))
-    : top >= 0 && left >= 0 && bottom <= innerHeight && right <= innerWidth;
+    : top >= 0 && left >= 0 && bottom <= innerHeight && right <= innerWidth
 }
 
 /**
@@ -56,10 +56,10 @@ export const elementIsVisibleInViewport = (el, partiallyVisible = false) => {
  */
 export const parents = (el, n) => {
   while (el && n) {
-    el = el.parentElement ? el.parentElement : el.parentNode;
-    n--;
+    el = el.parentElement ? el.parentElement : el.parentNode
+    n--
   }
-  return el;
+  return el
 }
 
 /**
@@ -71,21 +71,21 @@ export const retSibling = (el, n) => {
   while (el && n) {
     if (n > 0) {
       if (el.nextElementSibling) {
-        el = el.nextElementSibling;
+        el = el.nextElementSibling
       } else {
         for (el = e.nextSibling; el && el.nodeType !== 1; el = el.nextSibling);
       }
-      n--;
+      n--
     } else {
       if (el.previousElementSibling) {
-        el = el.previousElementSibling;
+        el = el.previousElementSibling
       } else {
         for (el = el.previousElementSibling; el && el.nodeType !== 1; el = el.previousElementSibling);
       }
-      n++;
+      n++
     }
   }
-  return el;
+  return el
 }
 
 /**
@@ -97,8 +97,8 @@ export const hasChildren = el => {
     len = children.length;
   for (let i = 0; i < len; i++) {
     if (children[i].nodeType === 1) {
-      return true;
+      return true
     }
   }
-  return false;
+  return false
 }

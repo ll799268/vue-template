@@ -10,6 +10,15 @@ export const scrollToTop = () => {
 }
 
 /**
+ * 检测页面是否滚动到页面底部
+ * @returns {Boolean}
+ */
+export const bottomVisible = () => {
+  document.documentElement.clientHeight + window.scrollY >=
+    (document.documentElement.scrollHeight || document.documentElement.clientHeight)
+}
+
+/**
  * 滚动条到指定位置动画
  * @param {Number} number 距离顶部位置
  * @param {Number} time 滚动总时间

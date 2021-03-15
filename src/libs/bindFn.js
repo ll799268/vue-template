@@ -6,13 +6,13 @@
  */
 export const addEvent = (el, evt, handle) => {
   if (el.addEventListener) { // 非ie和非ie9
-    el.addEventListener(evt, handle, false);
+    el.addEventListener(evt, handle, false)
   } else if (el.attachEvent) { // ie6到ie8
     el.attachEvent('on' + evt, () => {
-      handle.call(el);
+      handle.call(el)
     })
   } else {
-    el['on' + evt] = handle;
+    el['on' + evt] = handle
   }
 }
 
@@ -24,11 +24,11 @@ export const addEvent = (el, evt, handle) => {
  */
 export const addEvent = (el, evt, handle) => {
   if (el.removeEventListener) { // 非ie和非ie9
-    el.removeEventListener(evt, handle, false);
+    el.removeEventListener(evt, handle, false)
   } else if (el.detachEvent) { // ie6到ie8
-    el.detachEvent('on' + evt, handle);
+    el.detachEvent('on' + evt, handle)
   } else {
-    el['on' + evt] = null;
+    el['on' + evt] = null
   }
 }
 
@@ -37,9 +37,9 @@ export const addEvent = (el, evt, handle) => {
  */
 export const stopBubble = e => {
   if (e && e.stopPropagation) {
-    e.stopPropagation();
+    e.stopPropagation()
   } else {
-    window.event.cancelBubble = true;
+    window.event.cancelBubble = true
   }
 }
 
@@ -52,5 +52,5 @@ export const requestAnimFrame = (() => {
     window.mozRequestAnimationFrame ||
     function (callback) {
       window.setTimeout(callback, 1000 / 60);
-    };
-})();
+    }
+})()

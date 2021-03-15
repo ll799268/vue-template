@@ -10,15 +10,15 @@
     } else {
       //当窗体的宽度大于1255的时候执行相应的操作
     }
-  };
+  }
   if (window.addEventListener) {
     window.addEventListener('resize', function() {
-      fn();
-    });
+      fn()
+    })
   } else if (window.attachEvent) {
     window.attachEvent('onresize', function() {
-      fn();
-    });
+      fn()
+    })
   }
-  fn();
-})();
+  fn()
+})()

@@ -35,7 +35,7 @@ export const getPageHeight = () => {
     f = g.documentElement,
     d = g.compatMode == 'BackCompat' ? a : g.documentElement;
 
-  return Math.max(f.scrollHeight, a.scrollHeight, d.clientHeight);
+  return Math.max(f.scrollHeight, a.scrollHeight, d.clientHeight)
 }
 
 /**
@@ -44,11 +44,11 @@ export const getPageHeight = () => {
  */
 export const injectScript = src => {
   let s = document.createElement('script');
-  s.type = 'text/JavaScript';
-  s.async = true;
-  s.src = src;
+  s.type = 'text/JavaScript'
+  s.async = true
+  s.src = src
   const t = document.getElementsByTagName('script')[0];
-  t.parentNode.insertBefore(s, t);
+  t.parentNode.insertBefore(s, t)
 }
 
 /**
@@ -59,16 +59,16 @@ export const loadScript = (url, callback) => {
   if (oscript.readyState) { // ie8及以下版本
     oscript.onreadystatechange = function () {
       if (oscript.readyState === 'complete' || oscript.readyState === 'loaded') {
-        callback();
+        callback()
       }
     }
   } else {
     oscript.onload = function () {
-      callback();
-    };
+      callback()
+    }
   }
-  oscript.src = url;
-  document.body.appendChild(oscript);
+  oscript.src = url
+  document.body.appendChild(oscript)
 }
 
 /**
@@ -80,23 +80,23 @@ export const download = url => {
     isSafari = navigator.userAgent.toLowerCase().indexOf('safari') > -1;
   if (isChrome || isSafari) {
     let link = document.createElement('a');
-    link.href = url;
+    link.href = url
     if (link.download !== undefined) {
       const fileName = url.substring(url.lastIndexOf('/') + 1, url.length);
-      link.download = fileName;
+      link.download = fileName
     }
     if (document.createEvent) {
       const e = document.createEvent('MouseEvents');
-      e.initEvent('click', true, true);
-      link.dispatchEvent(e);
-      return true;
+      e.initEvent('click', true, true)
+      link.dispatchEvent(e)
+      return true
     }
   }
   if (url.indexOf('?') === -1) {
-    url += '?download';
+    url += '?download'
   }
-  window.open(url, '_self');
-  return true;
+  window.open(url, '_self')
+  return true
 }
 
 /**
@@ -112,14 +112,14 @@ export const openWindow = (url, windowName, width, height) => {
   const isMSIE = navigator.appName == "Microsoft Internet Explorer";
   if (isMSIE) {
     let p = "resizable=1,location=no,scrollbars=no,width=";
-    p = p + width;
-    p = p + ",height=";
-    p = p + height;
-    p = p + ",left=";
-    p = p + x;
-    p = p + ",top=";
-    p = p + y;
-    retval = window.open(url, windowName, p);
+    p = p + width
+    p = p + ",height="
+    p = p + height
+    p = p + ",left="
+    p = p + x
+    p = p + ",top="
+    p = p + y
+    retval = window.open(url, windowName, p)
   } else {
     const win = window.open(
       url,
@@ -135,8 +135,8 @@ export const openWindow = (url, windowName, width, height) => {
       ",height=" +
       height +
       ",resizable=no"
-    );
-    eval("try { win.resizeTo(width, height); } catch(e) { }");
-    win.focus();
+    )
+    eval("try { win.resizeTo(width, height); } catch(e) { }")
+    win.focus()
   }
 }
