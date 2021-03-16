@@ -90,7 +90,7 @@ export const retSibling = (el, n) => {
 
 /**
  * 判断元素有没有子元素
- * @param {Document} el 
+ * @param {Element} el 
  */
 export const hasChildren = el => {
   const children = el.childNodes,
@@ -102,3 +102,24 @@ export const hasChildren = el => {
   }
   return false
 }
+
+/**
+ * 返回DOM元素节点对应的属性值
+ * @param {Element} el 
+ * @param {*} ruleName 
+ */
+export const getStyle = (el, ruleName) => getComputedStyle(el)[ruleName]
+
+/**
+ * 给定的DOM节点前插入新的节点内容
+ * @param {Element} el 
+ * @param {String} htmlString html片段
+ */
+export const insertBefore = (el, htmlString) => el.insertAdjacentHTML('beforebegin', htmlString)
+
+/**
+ * 给定的DOM节点后插入新的节点内容
+ * @param {Element} el 
+ * @param {String} htmlString html片段
+ */
+export const insertAfter = (el, htmlString) => el.insertAdjacentHTML('afterend', htmlString)

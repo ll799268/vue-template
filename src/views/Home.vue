@@ -7,12 +7,15 @@
 </template>
 
 <script>
-import { letterBegin } from 'libs/formatString'
+import { getStyle } from 'libs/handleElement'
 export default {
   data() {
     return {
-      str: 'a12'
+      str: true
     }
+  },
+  created () {
+    console.log(getStyle(document.body, 'font-size'));
   }
 }
 </script>

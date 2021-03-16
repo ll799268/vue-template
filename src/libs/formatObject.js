@@ -27,6 +27,4 @@ export const deepClone = (origin, target) => {
  * 判断是否为空对象
  * @param {Object}} obj 
  */
-export const isNullObject = obj => {
-  return Object.keys(obj).length === 0
-}
+export const isNullObject = obj => Object.keys(obj).length === 0

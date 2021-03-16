@@ -38,16 +38,12 @@ export const sortArrayZhName = (arr, name, empty) => {
 /**
  * 数组去重
  */
-export const arrRemoveRepeat = arr => {
-  return Array.from(new Set(arr))
-}
+export const arrRemoveRepeat = arr => Array.from(new Set(arr))
 
 /**
  * 多维数组扁平化
  */
-export const arrDeepFlat = arr => {
-  return arr.flat(Infinity) || arr.toString().split(',')
-}
+export const arrDeepFlat = arr => arr.flat(Infinity) || arr.toString().split(',')
 
 /**
  * 用洗牌算法随机打乱一个数组

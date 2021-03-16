@@ -75,9 +75,7 @@ export const checkIsIphoneX = () => {
  * 检查是否是 Apple设备
  * @return {Boolean} result
  */
-export const isAppleDevice = () => {
-  return /Mac|iPod|iPhone|iPad/.test(navigator.platform)
-}
+export const isAppleDevice = () => /Mac|iPod|iPhone|iPad/.test(navigator.platform)
 
 /**
  * 判断是否Touch屏幕

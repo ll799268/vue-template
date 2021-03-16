@@ -4,10 +4,10 @@
  * @return {String} result
  */
 export const getQueryString = name => {
-  const reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i')
-  const url = window.location.href
-  const search = url.substring(url.lastIndexOf('?') + 1)
-  const r = search.match(reg)
+  const reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i'),
+    url = window.location.href,
+    search = url.substring(url.lastIndexOf('?') + 1),
+    r = search.match(reg);
   if (r != null) return unescape(r[2])
   return null
 }
@@ -20,7 +20,7 @@ export const searchUrlParamsVal = (param = null) => {
   const href = window.location.href,
     params = href.slice(href.indexOf('?'), href.length).replace(/\?/, ''),
     paramsArr = params.split('&');
-  let paramsObj = {} 
+  let paramsObj = {}
 
   paramsArr.map(item => {
     const itemIdx = item.indexOf('='),

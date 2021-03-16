@@ -57,9 +57,20 @@ export const formatTime = (times, ymd, hms) => {
 /**
  * 获取当日零点时间戳
  */
-export const todayTime = () => {
-  return new Date(new Date().toLocaleDateString()).getTime()
-}
+export const todayTime = () => new Date(new Date().toLocaleDateString()).getTime()
+
+/**
+ * 返回两个日期之间相差多少天
+ * @param {*} dateInitial 开始日期时间戳 new Date('2020-03-15')
+ * @param {*} dateFinal 结束日期
+ */
+export const getDaysDiffBetweenDates = (dateInitial, dateFinal) => (dateFinal - dateInitial) / (1000 * 3600 * 24)
+
+/**
+ * 返回当前是今年的第几天
+ * @param {Date} date 当前时间戳 
+ */
+export const dayOfYear = date => Math.floor((date - new Date(date.getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24)
 
 /**
  * 时间个性化输出功能
