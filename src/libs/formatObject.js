@@ -25,6 +25,12 @@ export const deepClone = (origin, target) => {
 
 /**
  * 判断是否为空对象
- * @param {Object}} obj 
+ * @param {Object} obj 
  */
 export const isNullObject = obj => Object.keys(obj).length === 0
+
+/**
+ * 计算对象的长度
+ * @param {*} obj 
+ */
+export const objectLenght = obj => Object.keys(obj).length

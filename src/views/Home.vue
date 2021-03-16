@@ -15,11 +15,11 @@ export default {
     }
   },
   created () {
-    console.log(getStyle(document.body, 'font-size'));
+
   }
 }
 </script>
 
 <style lang="scss" scoped>
-
+ 
 </style>
