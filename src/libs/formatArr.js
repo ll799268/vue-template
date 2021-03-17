@@ -43,7 +43,7 @@ export const arrRemoveRepeat = arr => Array.from(new Set(arr))
 /**
  * 多维数组扁平化
  */
-export const arrDeepFlat = arr => arr.flat(Infinity) || arr.toString().split(',')
+export const arrDeepFlat = arr => arr.flat(Infinity) || arr.toString().split(',').map(item => Number(item))
 
 /**
  * 用洗牌算法随机打乱一个数组
