@@ -44,6 +44,17 @@ export const stopBubble = e => {
 }
 
 /**
+ * 阻止默认行为的兼容代码
+ */
+export const preventDefault = e => {
+  if (e & e.preventDefault) {
+    e.preventDefault()
+  } else {
+    e.returnValue = false
+  }
+}
+
+/**
  * requestAnimFrame兼容性方法
  */
 export const requestAnimFrame = (() => {
