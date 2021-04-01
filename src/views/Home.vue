@@ -36,6 +36,13 @@ export default {
     console.log('arr value' + this.arr);
     console.log('arr1 value' + arr1);
   },
+  mounted () {
+    setTimeout(() => {
+      
+      this.$set(this.list, 0, '11')
+      console.log(this.list);
+    }, 1000)
+  },
   methods: {
     toLink (index) {
       this.$router.push('/hrefRouter/' + index)
