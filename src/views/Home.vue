@@ -38,9 +38,7 @@ export default {
   },
   mounted () {
     setTimeout(() => {
-      
-      this.$set(this.list, 0, '11')
-      console.log(this.list);
+      this.list[0].id = 11
     }, 1000)
   },
   methods: {

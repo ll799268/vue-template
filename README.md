@@ -16,11 +16,11 @@ yarn build
 ```
 
 
-## ui 框架（vant）按需引入
-  ```
-    * import { Button } from 'vant' （引入）
-    * components: { [Button.name]: Button } (注册)
-    * <van-button type="primary">主要按钮</van-button> (使用)
+## ui 框架（vant）按需引入 
+  ``` js
+    import { Button } from 'vant' （引入）
+    components: { [Button.name]: Button } (注册)
+    <van-button type="primary">主要按钮</van-button> (使用)
   ```
 
 ## 页面适配 (postcss-px2rem)
