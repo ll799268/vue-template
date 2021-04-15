@@ -29,6 +29,9 @@ html {
   ul {
     list-style: none;
   }
+  input {
+    -webkit-appearance: none; // ios文本框内阴影
+  }
 }
 
 .flex-start {
