@@ -118,10 +118,7 @@ export const isPostCode = string => /^[1-9][0-9]{5}$/.test(string.toString())
  * 判断是否是手机号，只要是13,14,15,16,17,18,19开头即可
  * @param {String} phone 校验手机号
  */
-export const checkTelphone = phone => {
-  const reg = /^((\+|00)86)?1[3-9]\d{9}$/g;
-  if (reg.test(phone)) return true
-}
+export const checkTelphone = phone => /^((\+|00)86)?1[3-9]\d{9}$/g.test(phone)
 
 /**
  * 校验是否为中国大陆传真或固定电话号码
