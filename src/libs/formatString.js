@@ -79,6 +79,12 @@ export const clearSpaces = string => string.replace(/[\u4e00-\u9fa5]/g, '')
 export const clearCNChars = string => string.replace(/[\u4e00-\u9fa5]/g, '')
 
 /**
+ * 判断是否金额
+ * @param {String} str 
+ */
+export const checkMoney = str => /(^[1-9]([0-9]+)?(\.[0-9]{1,2})?$)|(^(0){1}$)|(^[0-9]\.[0-9]([0-9])?$)/.test(str)
+
+/**
  * 全角半角转换
  * @param {String} sStr  要转换的字符串
  * @param {Number} iCase 0全到半，1半到全，其他不转化
