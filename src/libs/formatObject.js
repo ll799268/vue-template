@@ -34,3 +34,17 @@ export const isNullObject = obj => Object.keys(obj).length === 0
  * @param {*} obj 
  */
 export const objectLenght = obj => Object.keys(obj).length
+
+/**
+ * 替换JSON中的key
+ * @param {Object} JSON对象 
+ * @param {String} key值 
+ * @returns 
+ */
+export const renameProperty = (obj, newKeys) => {
+  const keyValues = Object.keys(obj).map(key => {
+    const newKey = newKeys[key] || key;
+    return { [newKey]: obj[key] };
+  });
+  return Object.assign({}, ...keyValues);
+}
