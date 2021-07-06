@@ -46,14 +46,6 @@ export const getUrlState = URL => {
   } catch (e) {
   } finally {
     const result = xmlhttp.responseText;
-    if (result) {
-      if (xmlhttp.Status == 200) {
-        return true
-      } else {
-        return false
-      }
-    } else {
-      return false
-    }
+    return result && xmlhttp.Status === 200
   }
 }

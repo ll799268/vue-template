@@ -140,3 +140,12 @@ export const openWindow = (url, windowName, width, height) => {
     win.focus()
   }
 }
+
+/**
+ * 随机生成十六进制颜色代码
+ * @returns 
+ */
+export const randomHexColorCode = () => {
+  let n = (Math.random() * 0xfffff * 1000000).toString(16);
+  return '#' + n.slice(0, 6);
+}

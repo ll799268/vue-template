@@ -5,7 +5,6 @@
  * @empty 是否清空 空项
  * @return 按[a-z]排序后的数组
  */
-
 export const sortArrayZhName = (arr, name, empty) => {
 
   const letters = '*abcdefghjklmnopqrstwxyz'.split(''),
@@ -44,6 +43,22 @@ export const arrRemoveRepeat = arr => Array.from(new Set(arr))
  * 多维数组扁平化
  */
 export const arrDeepFlat = arr => arr.flat(Infinity) || arr.toString().split(',').map(item => Number(item))
+
+/**
+ * 从左侧删除了 n 个元素的新数组
+ * @param {*} arr 
+ * @param {*} n 
+ * @returns 
+ */
+export const drop = (arr, n = 1) => arr.slice(n)
+
+/**
+ * 从右侧删除了 n 个元素的新数组
+ * @param {*} arr 
+ * @param {*} n 
+ * @returns 
+ */
+export const dropRight = (arr, n = 1) => arr.slice(0, -n)
 
 /**
  * 用洗牌算法随机打乱一个数组

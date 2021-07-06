@@ -104,6 +104,15 @@ export const hasChildren = el => {
 }
 
 /**
+ * 检查父元素是否包含子元素
+ * @param {*} parent 
+ * @param {*} child 
+ * @returns 
+ */
+ export const elementContains = (parent, child) => parent !== child && parent.contains(child)
+
+
+/**
  * 返回DOM元素节点对应的属性值
  * @param {Element} el 
  * @param {*} ruleName 

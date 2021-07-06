@@ -4,7 +4,6 @@
  * @target 目标对象
  * @return 克隆的新对象
  */
-
 export const deepClone = (origin, target) => {
   const tar = target || {},
     toStr = Object.prototype.toString,
@@ -39,7 +38,6 @@ export const objectLenght = obj => Object.keys(obj).length
  * 替换JSON中的key
  * @param {Object} JSON对象 
  * @param {String} key值 
- * @returns 
  */
 export const renameProperty = (obj, newKeys) => {
   const keyValues = Object.keys(obj).map(key => {
