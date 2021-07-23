@@ -53,6 +53,13 @@ export const arrDeepFlat = arr => arr.flat(Infinity) || arr.toString().split(','
 export const drop = (arr, n = 1) => arr.slice(n)
 
 /**
+ * 数组深拷贝
+ * @param {*} arr 
+ * @returns 
+ */
+export const depArray = arr => arr.slice() || [...arr]
+
+/**
  * 从右侧删除了 n 个元素的新数组
  * @param {*} arr 
  * @param {*} n 
