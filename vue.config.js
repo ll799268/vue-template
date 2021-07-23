@@ -1,4 +1,6 @@
-const path = require('path');
+const path = require('path')
+
+const CompressionPlugin = require('compression-webpack-plugin')
 
 function resolve(dir) {
   return path.join(__dirname, dir)
@@ -28,5 +30,20 @@ module.exports = {
     //   pathRewrite: { '^/api/': '' }
     // }
     // }
+  },
+  
+  // 开启GZip压缩
+  configureWebpack: (config) => {
+    if (process.env.NODE_ENV === 'production') {
+      // 为生产环境修改配置...
+      config.mode = 'production'
+      return {
+        plugins: [new CompressionPlugin({
+          test: /\.js$|\.html$|\.css/, // 匹配文件名
+          threshold: 10240, // 对超过10k的数据进行压缩
+          deleteOriginalAssets: false // 是否删除原文件
+        })]
+      }
+    }
   }
 }
