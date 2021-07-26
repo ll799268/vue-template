@@ -5,6 +5,7 @@
         :key="index">{{ item }}</li>
     </ul>
     <button @click="addItems">add</button>
+    <div contenteditable></div>
   </div>
 </template>
 
