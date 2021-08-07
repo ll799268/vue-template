@@ -60,13 +60,6 @@ export const formatTime = (times, ymd, hms) => {
 export const todayTime = () => new Date(new Date().toLocaleDateString()).getTime()
 
 /**
- * 返回两个日期之间相差多少天
- * @param {*} dateInitial 开始日期时间戳 new Date('2020-03-15')
- * @param {*} dateFinal 结束日期
- */
-export const getDaysDiffBetweenDates = (dateInitial, dateFinal) => (dateFinal - dateInitial) / (1000 * 3600 * 24)
-
-/**
  * 返回当前是今年的第几天
  * @param {Date} date 当前时间戳 
  */
@@ -115,4 +108,46 @@ export const timeFormat = time => {
     }
   }
   return timeStr
+}
+
+
+/**
+ * 计算失效目标日期(以天为计算单位)
+ * @param {Number} day 天数
+ * @param {Date} time 几天后到时间
+ * @returns 失效目标日期
+ */
+const waitInvalidDate = (day, time) => {
+  let diffDate = new Date(time)
+  diffDate.setDate(diffDate.getDate() + day)
+  return diffDate.getFullYear() + '-' + (diffDate.getMonth() + 1) + '-' + diffDate.getDate() + ' ' + diffDate.getHours() + ':' + diffDate.getMinutes() + ':' + diffDate.getSeconds()
+}
+/**
+ * 时间倒计时
+ * @param {*} createTime 创建时间
+ * @returns {Object} 剩余 days、hours、minutes、seconds
+ */
+export const waitPayTime = createTime => {
+  const createTimer = new Date(createTime).getTime(),
+    invalidDate = new Date(waitInvalidDate(1, createTimer)).getTime(),
+    nowDate = new Date().getTime(),
+    diffTimer = invalidDate - nowDate,
+
+    days = Math.floor(diffTimer / (24 * 3600 * 1000)), // 相差天数
+
+    hoursTotal = diffTimer % (24 * 3600 * 1000),  // 计算小时数 
+    hours = Math.floor(diffTimer % (24 * 3600 * 1000) / (3600 * 1000)), // 计算天数后剩余的毫秒数
+
+    minutesTotal = hoursTotal % (3600 * 1000), // 计算相差分钟数
+    minutes = Math.floor(minutesTotal / (60 * 1000)), // 计算小时数后剩余的毫秒数
+
+    secondsTotal = minutesTotal % (36 * 1000), // 计算相差秒数
+    seconds = Math.round(secondsTotal / 1000) // 计算分钟数后剩余的毫秒数
+
+  return {
+    days,
+    hours, 
+    minutes,
+    seconds
+  }
 }
