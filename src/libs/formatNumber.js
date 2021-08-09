@@ -234,3 +234,11 @@ export const thousandthsSlice = num => {
   num = num.replace(/,(\d\d)$/, '.$1')
   return '￥' + num.replace(/^\./, '0.')
 }
+
+/**
+ * 将数字转换为进制数
+ * @param {Number} num 
+ * @param {Number} HEXNumber 
+ * @returns 
+ */
+export const numToHEX = (num, HEXNumber) => num.toString(HEXNumber)
