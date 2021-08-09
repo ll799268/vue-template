@@ -110,7 +110,6 @@ export const timeFormat = time => {
   return timeStr
 }
 
-
 /**
  * 计算失效目标日期(以天为计算单位)
  * @param {Number} day 天数
@@ -120,7 +119,7 @@ export const timeFormat = time => {
 const waitInvalidDate = (day, time) => {
   let diffDate = new Date(time)
   diffDate.setDate(diffDate.getDate() + day)
-  return diffDate.getFullYear() + '-' + (diffDate.getMonth() + 1) + '-' + diffDate.getDate() + ' ' + diffDate.getHours() + ':' + diffDate.getMinutes() + ':' + diffDate.getSeconds()
+  return diffDate.getFullYear() + '/' + (diffDate.getMonth() + 1) + '/' + diffDate.getDate() + ' ' + diffDate.getHours() + ':' + diffDate.getMinutes() + ':' + diffDate.getSeconds()
 }
 /**
  * 时间倒计时
@@ -128,7 +127,7 @@ const waitInvalidDate = (day, time) => {
  * @returns {Object} 剩余 days、hours、minutes、seconds
  */
 export const waitPayTime = createTime => {
-  const createTimer = new Date(createTime).getTime(),
+  const createTimer = new Date(createTime.replace(/-/g, '/')).getTime(),
     invalidDate = new Date(waitInvalidDate(1, createTimer)).getTime(),
     nowDate = new Date().getTime(),
     diffTimer = invalidDate - nowDate,
@@ -145,6 +144,7 @@ export const waitPayTime = createTime => {
     seconds = Math.round(secondsTotal / 1000) // 计算分钟数后剩余的毫秒数
 
   return {
+    createTimer,
     days,
     hours, 
     minutes,

@@ -1,36 +1,23 @@
 <template>
   <div class="warpper">
-    <ul>
-      <li v-for="(item, index) of items" 
-        :key="index">{{ item }}</li>
-    </ul>
-    <button @click="addItems">add</button>
-    <div contenteditable></div>
+    <p>hours: {{ timer.hours }}</p>
+    <p>minutes: {{ timer.minutes }}</p>
+    <p>seconds: {{ timer.seconds }}</p>
+    <p>{{ timer.createTimer }}</p>
   </div>
 </template>
 
 <script>
-import Vue from 'vue'
+import { waitPayTime } from '../libs/formatDate'
 export default {
   data() {
     return {
-      items: {
-        a: 1,
-        b: 2,
-      },
+      time: '2021-08-09 09:53:30',
+      timer: {}
     };
   },
-  methods: {
-    addItems() {
-      this.items.c = 3
-
-      this.$forceUpdate()
-      // this.items = Object.assign({}, this.items, {
-      //   c: 3
-      // })
-
-      // Vue.set(this.items, 'c', 3)
-    }
+  created() {
+    this.timer = waitPayTime(this.time)
   }
 };
 </script>
