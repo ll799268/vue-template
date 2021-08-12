@@ -10,6 +10,7 @@
 html {
   height: 100%;
   // -webkit-overflow-scrolling:touch // 页面滑动卡顿问题
+  scroll-behavior: smooth; // html页面平滑滚动
   body {
     height: 100%;
     // -webkit-overflow-scrolling:touch // 页面滑动卡顿问题
