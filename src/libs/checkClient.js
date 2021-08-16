@@ -30,8 +30,8 @@ export const checkBrowser = () => {
 };
 
 /**
- * 判断是终端类型,值有ios,android,iPad
- * @return {String} result
+ * 判断是终端类型
+ * @return { String } ios,android,iPad
  */
 export const checkIosAndroidIpad = () => {
   const u = navigator.userAgent
@@ -45,7 +45,7 @@ export const checkIosAndroidIpad = () => {
 
 /**
  * 判断是否是微信,qq 或 uc
- * @return {String} result
+ * @returns
  */
 export const checkWeixinQqUc = () => {
   const u = navigator.userAgent
@@ -59,7 +59,7 @@ export const checkWeixinQqUc = () => {
 
 /**
  * 检查是否是 IphoneX
- * @return {String} result
+ * @returns
  */
 export const checkIsIphoneX = () => {
   const u = navigator.userAgent
@@ -71,7 +71,7 @@ export const checkIsIphoneX = () => {
 
 /**
  * 检查是否是 Apple设备
- * @return {Boolean} result
+ * @returns
  */
 export const isAppleDevice = () => /Mac|iPod|iPhone|iPad/.test(navigator.platform)
 
@@ -83,3 +83,9 @@ export const isTouchScreen = () => {
     "ontouchstart" in window || (window.DocumentTouch && document instanceof DocumentTouch)
   );
 }
+
+/**
+ * 判断设备是几倍屏
+ * @returns 
+ */
+export const devicePixelRatioNum = () => window.devicePixelRatio()
