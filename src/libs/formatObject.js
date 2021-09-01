@@ -46,3 +46,13 @@ export const renameProperty = (obj, newKeys) => {
   });
   return Object.assign({}, ...keyValues);
 }
+
+/**
+ * 检查一个属性是否存在于一个对象中
+ * @param {*} str 字段名
+ * @param {*} obj 要检查的对象
+ * @returns 
+ */
+export const checkStrInObject = (str, obj) => {
+  return str in obj
+}
