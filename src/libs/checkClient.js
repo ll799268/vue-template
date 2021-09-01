@@ -58,6 +58,23 @@ export const checkWeixinQqUc = () => {
 };
 
 /**
+ * 判断浏览器类型
+ * @returns 1微信、2支付宝
+ */
+export const checkBrowser = () => {
+  const ua = window.navigator.userAgent.toLowerCase();
+  let typeNum = 0;
+  if (ua.indexOf('micromessenger') > 0) {
+    typeNum = 1;
+  }
+  if (ua.indexOf('alipayclient') > 0) {
+    typeNum = 2;
+  }
+
+  return typeNum;
+};
+
+/**
  * 检查是否是 IphoneX
  * @returns
  */
