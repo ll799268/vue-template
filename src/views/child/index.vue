@@ -1,6 +1,8 @@
 <template>
   <ul>
-    <li v-for="item of children" :key="item.id">
+    <li v-for="item of children" 
+      :key="item.id"
+      @click="handleClick(item.id)">
       <p>{{ item.name }}</p>
       <template v-if="item.children">
         <child-list :children="item.children"></child-list>
@@ -16,6 +18,11 @@ export default {
     children: {
       type: Array,
       default: () => []
+    }
+  },
+  methods: {
+    handleClick (id) {
+      this.$emit('callback', id)
     }
   }
 }
