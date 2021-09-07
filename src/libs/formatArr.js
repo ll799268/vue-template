@@ -110,3 +110,18 @@ export const formatToTree = arr => {
     return parent
   }
 }
+
+/**
+ * 检查两个数组的差异
+ * @param {*} a 要diif数组一
+ * @param {*} b 要diif数组二
+ * @returns {Array} 差异数组 
+ */
+export const ArrayDiff = (a, b) => {
+  const setX = new Set(a)
+  const setY = new Set(b)
+  return [
+    ...a.filter(x => !setY.has(x)),
+    ...b.filter(x => !setX.has(x))
+  ]
+}
