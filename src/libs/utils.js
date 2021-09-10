@@ -155,7 +155,7 @@ export const randomHexColorCode = () => {
  * @param {Element} parentDom 要插入的父节点
  * @param {Number} onceNumber 一次插入几条数据
  */
-export const insertManyRecord = (parentDom, onceNumber=20) => {
+export const insertManyRecord = (parentDom, onceNumber = 20) => {
   setTimeout(() => {
     // 插入十万条数据
     const total = 100000
@@ -165,7 +165,7 @@ export const insertManyRecord = (parentDom, onceNumber=20) => {
     // 添加数据的方法
     function add() {
       const fragment = document.createDocumentFragment()
-      for(let i = 0; i < onceNumber; i++) {
+      for (let i = 0; i < onceNumber; i++) {
         const li = document.createElement('li')
         li.innerText = Math.floor(Math.random() * total)
         fragment.appendChild(li)
@@ -175,7 +175,7 @@ export const insertManyRecord = (parentDom, onceNumber=20) => {
       loop()
     }
     function loop() {
-      if(countOfRender < loopCount) {
+      if (countOfRender < loopCount) {
         window.requestAnimationFrame(add)
       }
     }
@@ -183,4 +183,18 @@ export const insertManyRecord = (parentDom, onceNumber=20) => {
   }, 0)
 }
 
-
+/**
+ * 模拟延迟
+ * @param {*} timeout 
+ * @returns 
+ */
+export const delay = timeout => {
+  return new Promise(
+    resolve => {
+      const timeoutHandle =
+        setTimeout(() => {
+          clearTimeout(timeoutHandle)
+          resolve()
+        }, timeout)
+    })
+}
