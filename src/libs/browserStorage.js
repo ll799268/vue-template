@@ -40,8 +40,8 @@ export const storage = {
  */
 export const cookie = {
   get: name => {
-    const str = document.cookie
-    const arr = str.split('; ')
+    const str = document.cookie,
+      arr = str.split('; ')
     for (let i = 0; i < arr.length; i++) {
       const newArr = arr[i].split('=')
       if (newArr[0] === name) {
@@ -56,6 +56,5 @@ export const cookie = {
   },
   del: name => {
     document.cookie = name + '=;expires=' + new Date() + "; path=/;"
-    // this.set(name, '', -1)
   }
 }

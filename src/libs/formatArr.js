@@ -40,6 +40,18 @@ export const sortArrayZhName = (arr, name, empty) => {
 export const arrRemoveRepeat = arr => Array.from(new Set(arr))
 
 /**
+ * 找出对应数组的最大值和最小值
+ * @param {*} arr 
+ * @returns 
+ */
+export const searchMaxAndMin = arr => {
+  return {
+    maxValue: Math.max(...arr),
+    minValue: Math.min(...arr)
+  }
+}
+
+/**
  * 多维数组扁平化
  */
 export const arrDeepFlat = arr => arr.flat(Infinity) || arr.toString().split(',').map(item => Number(item))
