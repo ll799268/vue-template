@@ -29,7 +29,6 @@ export const searchUrlParamsVal = (param = null) => {
 
     paramsObj[itemKey] = itemVal
   })
-
   return paramsObj[param] || null
 }
 
