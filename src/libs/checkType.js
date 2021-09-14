@@ -13,7 +13,7 @@ export const type = para => Object.prototype.toString.call(para)
 export const checkStr = (str, type) => {
   switch (type) {
     case 'phone':   // 手机号码
-      return /^1[3|4|5|6|7|8|9][0-9]{9}$/.test(str)
+      return /^(13[0-9]|14[5|7]|15[0|1|2|3|4|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/.test(str)
     case 'tel':     // 座机
       return /^(0\d{2,3}-\d{7,8})(-\d{1,4})?$/.test(str)
     case 'card':    // 身份证
