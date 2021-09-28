@@ -173,3 +173,12 @@ export const checkPwd = str => {
   }
   return Lv
 }
+
+/**
+ * 计算字符串字节长度(英文1个，中文2个)
+ * @param {*} str 
+ * @returns 
+ */
+ export const strLeg = str => {
+  return str.replace(/[^\x00-\xff]/g, 'mm').length
+}
