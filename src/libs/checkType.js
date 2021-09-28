@@ -261,3 +261,12 @@ export const isMobileNumber = number => {
               : '未知');
   return s
 }
+
+/**
+ * 检查文件类型是否图片
+ * @param {String} flieName 
+ * @returns 
+ */
+ export const checkIsPic = flieName => {
+  return /\.(jpg|jpeg|png|GIF|JPG|PNG)$/.test(flieName)
+}
