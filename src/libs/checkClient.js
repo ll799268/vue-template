@@ -106,3 +106,9 @@ export const isTouchScreen = () => {
  * @returns 
  */
 export const devicePixelRatioNum = () => window.devicePixelRatio()
+
+/**
+ * 检测暗模式
+ * @returns {Boolean}
+ */
+export const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
