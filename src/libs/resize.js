@@ -1,4 +1,4 @@
-(function() {
+;(function() {
   const fn = function() {
     const w = document.documentElement
         ? document.documentElement.clientWidth

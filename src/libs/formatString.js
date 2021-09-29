@@ -55,18 +55,6 @@ export const formatChooseNumber = string => string.replace(/[^0-9]/g, '')
 export const lengthRange = (string, minLength, maxLength) => Boolean(string.length >= minLength && string.length <= maxLength)
 
 /**
- * 校验字符是否以字母开头
- * @param {String} string  校验字符
- */
-export const letterBegin = string => /^[A-z]/.test(string)
-
-/**
- * 校验字符是否为纯数字(整数) 字符全部为正整数(包含0)
- * @param {String} string  校验字符
- */
-export const pureNum = string => /^[0-9]*$/.test(string)
-
-/**
  * 清除所有空格
  * @param {String} string 要清除的字符串
  */
@@ -77,12 +65,6 @@ export const clearSpaces = string => string.replace(/[\u4e00-\u9fa5]/g, '')
  * @param {String} string 要清除的字符串
  */
 export const clearCNChars = string => string.replace(/[\u4e00-\u9fa5]/g, '')
-
-/**
- * 判断是否金额
- * @param {String} str 
- */
-export const checkMoney = str => /(^[1-9]([0-9]+)?(\.[0-9]{1,2})?$)|(^(0){1}$)|(^[0-9]\.[0-9]([0-9])?$)/.test(str)
 
 /**
  * 全角半角转换
@@ -179,6 +161,6 @@ export const checkPwd = str => {
  * @param {*} str 
  * @returns 
  */
- export const strLeg = str => {
+export const strLeg = str => {
   return str.replace(/[^\x00-\xff]/g, 'mm').length
 }

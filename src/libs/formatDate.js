@@ -121,6 +121,7 @@ const waitInvalidDate = (day, time) => {
   diffDate.setDate(diffDate.getDate() + day)
   return diffDate.getFullYear() + '/' + (diffDate.getMonth() + 1) + '/' + diffDate.getDate() + ' ' + diffDate.getHours() + ':' + diffDate.getMinutes() + ':' + diffDate.getSeconds()
 }
+
 /**
  * 时间倒计时
  * @param {*} createTime 创建时间
