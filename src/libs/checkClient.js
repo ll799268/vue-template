@@ -112,3 +112,13 @@ export const devicePixelRatioNum = () => window.devicePixelRatio()
  * @returns {Boolean}
  */
 export const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+
+/**
+ * 检查代码是否在Node.js中运行
+ */
+export const isNode = typeof process !== 'undefined' && process.versions != null && process.versions.node != null
+
+/**
+ * 检查代码是否在浏览器中运行
+ */
+export const isBrowser = typeof window === 'object' && typeof document === 'object'

@@ -109,7 +109,7 @@ export const hasChildren = el => {
  * @param {*} child 
  * @returns 
  */
- export const elementContains = (parent, child) => parent !== child && parent.contains(child)
+export const elementContains = (parent, child) => parent !== child && parent.contains(child)
 
 
 /**
@@ -132,3 +132,16 @@ export const insertBefore = (el, htmlString) => el.insertAdjacentHTML('beforebeg
  * @param {String} htmlString html片段
  */
 export const insertAfter = (el, htmlString) => el.insertAdjacentHTML('afterend', htmlString)
+
+/**
+ * 检查元素是否被聚焦
+ * @param {*} el 
+ * @returns
+ */
+export const hasFocus = el => el === document.activeElement
+
+/**
+ * 获取选中的文本
+ * @returns 
+ */
+export const getSelectedText = () => window.getSelection().toString()
