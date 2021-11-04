@@ -147,7 +147,7 @@ export const waitPayTime = createTime => {
   return {
     createTimer,
     days,
-    hours, 
+    hours,
     minutes,
     seconds
   }
@@ -160,4 +160,16 @@ export const getLastWeekDate = () => {
   let myDate = new Date()
   myDate.setDate(myDate.getDate() - 7)
   return myDate
+}
+
+/**
+ * 计算两个时间相差的天数
+ * @param {*} startTime 
+ * @param {*} endTime 
+ * @returns 
+ */
+export const getDaysBetween = (startTime, endTime) => {
+  const startDate = Date.parse(startTime)
+  const endDate = Date.parse(endTime)
+  return (endDate - startDate) / (1 * 24 * 60 * 60 * 1000);
 }
