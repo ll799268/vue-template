@@ -152,3 +152,12 @@ export const waitPayTime = createTime => {
     seconds
   }
 }
+
+/**
+ * 获取七天前日期
+ */
+export const getLastWeekDate = () => {
+  let myDate = new Date()
+  myDate.setDate(myDate.getDate() - 7)
+  return myDate
+}
