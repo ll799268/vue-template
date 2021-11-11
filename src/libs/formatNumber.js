@@ -242,3 +242,29 @@ export const thousandthsSlice = num => {
  * @returns 
  */
 export const numToHEX = (num, HEXNumber) => num.toString(HEXNumber)
+
+/**
+ * 非零开头的整数
+ * @param {Number} num 
+ * @returns 
+ */
+export const isInt = num => {
+  return /^[1-9][0-9]$/.test(num)
+}
+
+/**
+ * 非零开头的两位小数
+ * @param {Number} num 
+ * @returns 
+ */
+export const isDouble = num => {
+  return /^(([^0][0-9]+|0)\.([0-9]{1,2})$)|^([^0][0-9]+|0)$/.test(num)
+}
+/**
+ * 非零开头的整数
+ * @param {Number} num 
+ * @returns 
+ */
+export const isInt = num => {
+  return /^[1-9][0-9]$/.test(num)
+}

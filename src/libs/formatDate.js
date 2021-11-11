@@ -164,12 +164,12 @@ export const getLastWeekDate = () => {
 
 /**
  * 计算两个时间相差的天数
- * @param {*} startTime 
- * @param {*} endTime 
+ * @param {*} startTime // 标准日期
+ * @param {*} endTime // 标准日期
  * @returns 
  */
 export const getDaysBetween = (startTime, endTime) => {
-  const startDate = Date.parse(startTime)
-  const endDate = Date.parse(endTime)
-  return (endDate - startDate) / (1 * 24 * 60 * 60 * 1000);
+  const startDate = Date.parse(startTime) // 转换为时间戳
+  const endDate = Date.parse(endTime) // 转换为时间戳
+  return (endDate - startDate) / (1 * 24 * 60 * 60 * 1000)
 }
