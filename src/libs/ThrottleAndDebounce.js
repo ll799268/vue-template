@@ -24,7 +24,7 @@ export const throttle = (func, delay) => {
 export const debounce = (fn, wait) => {
   let timeout = null
   return function () {
-    if (!timeout) clearTimeout(timeout) // 如果多次触发将上次记录延迟清除掉
+    if (!timeout) return clearTimeout(timeout) // 如果多次触发将上次记录延迟清除掉
     timeout = setTimeout(() => {
       fn.apply(this, arguments)
       // 或者直接 fn()

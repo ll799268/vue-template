@@ -45,6 +45,14 @@ export const checkStr = (str, type) => {
 }
 
 /**
+ * 是否是爬虫
+ * @returns 
+ */
+export const isSpider = () => {
+  return /adsbot|googlebot|bingbot|msnbot|yandexbot|baidubot|robot|careerbot|seznambot|bot|baiduspider|jikespider|symantecspider|scannerlwebcrawler|crawler|360spider|sosospider|sogou web sprider|sogou orion spider/.test(navigator.userAgent)
+}
+
+/**
  * 输入一个值，返回其数据类型
  * @param {*} para 数据类型
  * @return {String} 类型
