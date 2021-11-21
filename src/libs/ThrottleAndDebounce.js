@@ -1,5 +1,5 @@
 /**
- * * 节流
+ * 节流
  * @param {*} func 执行函数
  * @param {*} delay 节流时间,毫秒
  * @param {*} leading 指定调用在节流开始前
