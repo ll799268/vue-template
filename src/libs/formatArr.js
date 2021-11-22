@@ -65,7 +65,7 @@ export const arrDeepFlat = arr => arr.flat(Infinity) || arr.toString().split(','
 export const drop = (arr, n = 1) => arr.slice(n)
 
 /**
- * 数组深拷贝
+ * 数组浅拷贝
  * @param {*} arr 
  * @returns 
  */
@@ -136,4 +136,12 @@ export const ArrayDiff = (a, b) => {
     ...a.filter(x => !setY.has(x)),
     ...b.filter(x => !setX.has(x))
   ]
+}
+
+/**
+ * 类数组转换为数组
+ * @returns 
+ */
+export const transformToArray = () => {
+  return Array.prototype.slice.call(arguments)
 }
