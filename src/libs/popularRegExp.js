@@ -140,7 +140,7 @@ export const checkIsPic = flieName => {
 export const checkLetter = string => /^[a-zA-Z]+$/.test(string)
 
 /**
- * 检查只含字母的字符串
+ * 检查只含中文的字符串
  * @param {*} string 
  * @returns 
  */
@@ -152,6 +152,41 @@ export const checkCN = string => /[\u4E00-\u9FA5]/.test(string)
  * @returns 
  */
 export const checkCarNo = string => /^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[A-Z]{1}[A-Z0-9]{4}[A-Z0-9挂学警港澳]{1}$/.test(string)
+
+/**
+ * 火车车次
+ * @param {*} string 
+ * @returns 
+ */
+export const checkTrainNo = string => /^[GCDZTSPKXLY1-9]\d{1,4}$/.test(string)
+
+/**
+ * 视频链接地址
+ * @param {*} string 
+ * @returns 
+ */ 
+export const checkVideoLink = string => /^https?:\/\/.*?(?:swf|avi|flv|mpg|rm|mov|wav|asf|3gp|mkv|rmvb|mp4)$/i.test(string)
+
+/**
+ * 图片链接地址
+ * @param {*} string
+ * @returns 
+ */ 
+export const checkImageLink = string => /^https?:\/\/.*?(?:gif|png|jpg|jpeg|webp|svg|psd|bmp|tif)$/i.test(string)
+
+/**
+ * 12小时制时间
+ * @param {*} string (HH:mm:ss)
+ * @returns 
+ */ 
+export const check12HourSystem = string => /^(?:1[0-2]|0?[1-9]):[0-5]\d:[0-5]\d$/.test(string)
+
+/**
+ * 24小时制时间
+ * @param {*} string (HH:mm:ss)
+ * @returns 
+ */ 
+export const check24HourSystem = string => /^(?:[01]\d|2[0-3]):[0-5]\d:[0-5]\d$/.test(string)
 
 /**
  * 密码中必须包含字母、数字、特称字符，至少8个字符，最多30个字符
