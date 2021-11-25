@@ -134,70 +134,77 @@ export const checkIsPic = flieName => {
 
 /**
  * 检查只含字母的字符串
- * @param {*} string 
+ * @param {String} string 
  * @returns 
  */
 export const checkLetter = string => /^[a-zA-Z]+$/.test(string)
 
 /**
  * 检查只含中文的字符串
- * @param {*} string 
+ * @param {String} string 
  * @returns 
  */
 export const checkCN = string => /[\u4E00-\u9FA5]/.test(string)
 
 /**
  * 车牌号的校验
- * @param {*} string 
+ * @param {String} string 
  * @returns 
  */
 export const checkCarNo = string => /^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[A-Z]{1}[A-Z0-9]{4}[A-Z0-9挂学警港澳]{1}$/.test(string)
 
 /**
  * 火车车次
- * @param {*} string 
+ * @param {String} string 
  * @returns 
  */
 export const checkTrainNo = string => /^[GCDZTSPKXLY1-9]\d{1,4}$/.test(string)
 
 /**
  * 视频链接地址
- * @param {*} string 
+ * @param {String} string 
  * @returns 
  */ 
 export const checkVideoLink = string => /^https?:\/\/.*?(?:swf|avi|flv|mpg|rm|mov|wav|asf|3gp|mkv|rmvb|mp4)$/i.test(string)
 
 /**
  * 图片链接地址
- * @param {*} string
+ * @param {String} string
  * @returns 
  */ 
 export const checkImageLink = string => /^https?:\/\/.*?(?:gif|png|jpg|jpeg|webp|svg|psd|bmp|tif)$/i.test(string)
 
 /**
  * 12小时制时间
- * @param {*} string (HH:mm:ss)
+ * @param {String} string (HH:mm:ss)
  * @returns 
  */ 
 export const check12HourSystem = string => /^(?:1[0-2]|0?[1-9]):[0-5]\d:[0-5]\d$/.test(string)
 
 /**
  * 24小时制时间
- * @param {*} string (HH:mm:ss)
+ * @param {String} string (HH:mm:ss)
  * @returns 
  */ 
 export const check24HourSystem = string => /^(?:[01]\d|2[0-3]):[0-5]\d:[0-5]\d$/.test(string)
 
 /**
- * 密码中必须包含字母、数字、特称字符，至少8个字符，最多30个字符
- * @param {*} string 
+ * base64格式
+ * @param {String} string
+ * @returns 
+ */ 
+export const checkIsBase64 = string => /^\s*data:(?:[a-z]+\/[a-z0-9-+.]+(?:;[a-z-]+=[a-z0-9-]+)?)?(?:;base64)?,([a-z0-9!$&',()*+;=\-._~:@/?%\s]*?)\s*$/i.test(string)
+
+/**
+ * 密码中必须包含字母、数字、特殊字符，至少8个字符，最多30个字符
+ * @param {String} string 
  * @returns 
  */
 export const checkCN = string => /(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9]).{8,30}/.test(string)
 
 /**
  * 文件拓展名校验
- * @param {*} arr 要校验文件的后缀名
+ * @param {String} arr 要校验文件的后缀名
  * @returns 
  */
 export const checkFileName = arr => {
@@ -206,16 +213,23 @@ export const checkFileName = arr => {
 }
 
 /**
- * 判断手机运营商
- * @param {String} number 手机号
+ * 护照（包含香港、澳门）
+ * @param {String} arr 要校验文件的后缀名
+ * @returns 
  */
-export const isMobileNumber = number => {
+export const checkPassport = string => /(^[EeKkGgDdSsPpHh]\d{8}$)|(^(([Ee][a-fA-F])|([DdSsPp][Ee])|([Kk][Jj])|([Mm][Aa])|(1[45]))\d{7}$)/.test(string)
+
+/**
+ * 判断手机运营商
+ * @param {String}
+ */
+export const isMobileNumber = string => {
   const i =
     '134,135,136,137,138,139,150,151,152,157,158,159,187,188,147,182,183,184,178',
     n = '130,131,132,155,156,185,186,145,176',
     a = '133,153,180,181,189,177,173,170';
 
-  let o = number || '',
+  let o = string || '',
     r = o.substring(0, 3),
     d = o.substring(0, 4),
     s =
