@@ -27,6 +27,30 @@ export const download = url => {
 }
 
 /**
+ * 网络图片转换为base64
+ * @param {*} url
+ */
+ export const getBase64 = (url, callback) => {
+  let Img = new Image(),
+    dataURL = ''
+
+  // 下面已修正ios的兼容微信打开失败的原因
+  Img.setAttribute('crossOrigin', 'Anonymous') // 解决控制台跨域报错的问题
+  Img.src = url + '?v=' + Math.random() // 处理缓存,fixed缓存bug,有缓存，浏览器会报错;
+
+  Img.onload = function () { // 要先确保图片完整获取到，这是个异步事件
+    let canvas = document.createElement('canvas') // 创建canvas元素
+    const width = Img.width, // 确保canvas的尺寸和图片一样
+      height = Img.height
+    canvas.width = width
+    canvas.height = height
+    canvas.getContext('2d').drawImage(Img, 0, 0, width, height) // 将图片绘制到canvas中
+    dataURL = canvas.toDataURL('image/jpeg') // 转换图片为dataURL
+    callback ? callback(dataURL) : null
+  }
+}
+
+/**
  * 随机生成十六进制颜色代码
  * @returns 
  */
