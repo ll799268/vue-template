@@ -4,7 +4,7 @@
  * @param {Array} dataSource 数据源数组(二位数组)
  * @param {Array} titles 标题数组
  */
- const exportExcel = ({ dataSource = [], titles = [], fileName = '客户统计_' + new Date().toLocaleDateString(), suffix = 'csv' }) => {
+const exportExcel = ({ dataSource = [], titles = [], fileName = '标题_' + new Date().toLocaleDateString(), suffix = 'csv' }) => {
   let dataType = "\uFEFF" //解决乱码问题
 
   dataType += titles.join(',')  //添加表格的头
