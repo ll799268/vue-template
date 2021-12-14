@@ -5,9 +5,9 @@ import store from './store'
 
 Vue.config.productionTip = false
 
-import 'assets/scss/index.scss'
+import '@assets/scss/index.scss'
 
-import Directives from 'directives'
+import Directives from '@directives'
 Vue.use(Directives)
 
 new Vue({

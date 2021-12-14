@@ -1,6 +1,6 @@
-const Home = () => import ('views/Home.vue')
-const Directives = () => import ('views/Directives.vue')
-const Parent = () => import ('views/Parent.vue')
+const Home = () => import ('@views/Home.vue')
+const Directives = () => import ('@views/Directives.vue')
+const Parent = () => import ('@views/Parent.vue')
 
 const routes = [
   { 
