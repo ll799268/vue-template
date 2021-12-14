@@ -1,7 +1,0 @@
-
-
-class Voicebroadcast {
-  constructor (el) {
-
-  }
-}
