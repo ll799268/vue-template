@@ -6,7 +6,6 @@
 </template>
 
 <script>
-import Voicebroadcast from '@modules/Voicebroadcast'
 export default {
   data() {
     return {
