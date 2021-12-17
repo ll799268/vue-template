@@ -1,4 +1,4 @@
-function addWaterMarker(str, parentNode, font, textColor) {
+const addWaterMarker = (str, parentNode, font, textColor) => {
   // 水印文字，父元素，字体，文字颜色
   let can = document.createElement('canvas')
   parentNode.appendChild(can)
