@@ -92,6 +92,15 @@ export const shuffle = arr => {
 }
 
 /**
+ * 随机数打乱数组
+ * @param {*} arr 
+ * @returns 
+ */
+export const randomSortArr = arr => {
+  return arr.sort(() => Math.random() > 0.5 ? 1 : -1)
+}
+
+/**
  * 树形菜单的制作
  * @param {Array} 扁平化数组
  * @return {Array} 多维数组
