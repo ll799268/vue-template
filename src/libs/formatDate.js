@@ -124,7 +124,7 @@ const waitInvalidDate = (day, time) => {
 
 /**
  * 时间倒计时
- * @param {*} createTime 创建时间
+ * @param {Date} createTime 创建时间 格式2021/12/28
  * @returns {Object} 剩余 days、hours、minutes、seconds
  */
 export const waitPayTime = createTime => {
@@ -164,12 +164,27 @@ export const getLastWeekDate = () => {
 
 /**
  * 计算两个时间相差的天数
- * @param {*} startTime // 标准日期
- * @param {*} endTime // 标准日期
+ * @param {Date} startTime // 标准日期
+ * @param {Date} endTime // 标准日期
  * @returns 
  */
 export const getDaysBetween = (startTime, endTime) => {
-  const startDate = Date.parse(startTime) // 转换为时间戳
-  const endDate = Date.parse(endTime) // 转换为时间戳
+  const startDate = Date.parse(startTime), // 转换为时间戳
+    endDate = Date.parse(endTime) // 转换为时间戳
   return (endDate - startDate) / (1 * 24 * 60 * 60 * 1000)
 }
+
+/**
+ * 检查日期是否有效
+ * @param  {...any} val 
+ * @returns 
+ */
+export const isDateValid = (...val) => !Number.isNaN(new Date(...val).valueOf())
+
+
+/**
+ * 找出一年当中第几天
+ * @param {Date} date 
+ * @returns 
+ */
+export const dayOfYear = date => Math.floor((date - new Date(date.getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24)
