@@ -1,7 +1,7 @@
 
 /**
  * 导出excel
- * @param {Array} dataSource 数据源数组(二位数组)
+ * @param {Array} dataSource 数据源数组(二维数组)
  * @param {Array} titles 标题数组
  */
 const exportExcel = ({ dataSource = [], titles = [], fileName = '标题_' + new Date().toLocaleDateString(), suffix = 'csv' }) => {
