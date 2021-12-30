@@ -4,16 +4,16 @@
  */
 export const download = url => {
   const isChrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1,
-    isSafari = navigator.userAgent.toLowerCase().indexOf('safari') > -1;
+    isSafari = navigator.userAgent.toLowerCase().indexOf('safari') > -1
   if (isChrome || isSafari) {
-    let link = document.createElement('a');
+    let link = document.createElement('a')
     link.href = url
     if (link.download !== undefined) {
-      const fileName = url.substring(url.lastIndexOf('/') + 1, url.length);
+      const fileName = url.substring(url.lastIndexOf('/') + 1, url.length)
       link.download = fileName
     }
     if (document.createEvent) {
-      const e = document.createEvent('MouseEvents');
+      const e = document.createEvent('MouseEvents')
       e.initEvent('click', true, true)
       link.dispatchEvent(e)
       return true

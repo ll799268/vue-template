@@ -3,11 +3,11 @@
  * @param {String} src 
  */
  export const injectScript = src => {
-  let s = document.createElement('script');
+  const s = document.createElement('script')
   s.type = 'text/JavaScript'
   s.async = true
   s.src = src
-  const t = document.getElementsByTagName('script')[0];
+  const t = document.getElementsByTagName('script')[0]
   t.parentNode.insertBefore(s, t)
 }
 
@@ -15,7 +15,7 @@
  * 异步加载script
  */
 export const loadScript = (url, callback) => {
-  let oscript = document.createElement('script');
+  const oscript = document.createElement('script')
   if (oscript.readyState) { // ie8及以下版本
     oscript.onreadystatechange = function () {
       if (oscript.readyState === 'complete' || oscript.readyState === 'loaded') {
