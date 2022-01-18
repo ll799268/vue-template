@@ -8,11 +8,11 @@ const routes = [
     component: Home 
   },
   { 
-    path: '/Directives', 
+    path: '/directives', 
     component: Directives 
   },
   { 
-    path: '/Parent', 
+    path: '/parent', 
     component: Parent 
   }
 ]

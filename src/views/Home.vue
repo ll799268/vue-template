@@ -1,21 +1,22 @@
 <template>
   <div>
-    <input v-model="txt" />
-    <button @click="_speechSynthesisUtterance">播放</button>
+    <h1 @click="showVal">title</h1>
+    <Voice :txt.sync="txt" />
   </div>
 </template>
 
 <script>
+import Voice from './Voice.vue'
 export default {
   data() {
     return {
       txt: '你好，我是小盖'
     }
   },
+  components: { Voice },
   methods: {
-    _speechSynthesisUtterance () {
-      let utterThis = new SpeechSynthesisUtterance(this.txt)
-      speechSynthesis.speak(utterThis);
+    showVal () {
+      console.log(this.txt);
     }
   }
 }
