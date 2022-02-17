@@ -36,6 +36,14 @@ export const removeClass = (el, className) => {
 }
 
 /**
+ * 切换元素的类
+ * @param {*} el 
+ * @param {*} className 
+ * @returns 
+ */
+export const toggleClass = (el, className) => el.classList.toggle(className)
+
+/**
  * el是否在视口范围内
  * @param {Document} el 元素节点
  * @param {Boolean} partiallyVisible 包含上下
