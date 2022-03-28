@@ -41,10 +41,10 @@ export const objectLenght = obj => Object.keys(obj).length
  */
 export const renameProperty = (obj, newKeys) => {
   const keyValues = Object.keys(obj).map(key => {
-    const newKey = newKeys[key] || key;
-    return { [newKey]: obj[key] };
-  });
-  return Object.assign({}, ...keyValues);
+    const newKey = newKeys[key] || key
+    return { [newKey]: obj[key] }
+  })
+  return Object.assign({}, ...keyValues)
 }
 
 /**
