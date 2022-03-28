@@ -50,7 +50,7 @@ export const toggleClass = (el, className) => el.classList.toggle(className)
  */
 export const elementIsVisibleInViewport = (el, partiallyVisible = false) => {
   const { top, left, bottom, right } = el.getBoundingClientRect(),
-        { innerHeight, innerWidth } = window;
+    { innerHeight, innerWidth } = window;
   return partiallyVisible
     ? ((top > 0 && top < innerHeight) || (bottom > 0 && bottom < innerHeight)) &&
     ((left > 0 && left < innerWidth) || (right > 0 && right < innerWidth))
@@ -153,3 +153,17 @@ export const hasFocus = el => el === document.activeElement
  * @returns 
  */
 export const getSelectedText = () => window.getSelection().toString()
+
+/**
+ * DOM转对象
+ * @param {*} node 
+ * @returns 
+ */
+export const dom2tree = node => {
+  const obj = {}
+  obj.tag = node.tagName
+  obj.children = []
+  node.childNodes.forEach(child => obj.children.push(dom2tree(child)))
+  
+  return obj
+}
