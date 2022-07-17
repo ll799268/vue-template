@@ -200,7 +200,7 @@ export const checkIsBase64 = string => /^\s*data:(?:[a-z]+\/[a-z0-9-+.]+(?:;[a-z
  * @param {String} string 
  * @returns 
  */
-export const checkCN = string => /(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9]).{8,30}/.test(string)
+export const checkPassword = string => /(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9]).{8,30}/.test(string)
 
 /**
  * 文件拓展名校验
