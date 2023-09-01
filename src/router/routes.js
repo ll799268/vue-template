@@ -1,6 +1,6 @@
 const Home = () => import ('@views/Home.vue')
 const Directives = () => import ('@views/Directives.vue')
-const Parent = () => import ('@views/Parent.vue')
+const parent = () => import ('@views/parent.vue')
 
 const routes = [
   { 
@@ -13,7 +13,7 @@ const routes = [
   },
   { 
     path: '/parent', 
-    component: Parent 
+    component: parent 
   }
 ]
 
