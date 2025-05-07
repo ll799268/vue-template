@@ -180,11 +180,3 @@ export const getDaysBetween = (startTime, endTime) => {
  * @returns 
  */
 export const isDateValid = (...val) => !Number.isNaN(new Date(...val).valueOf())
-
-
-/**
- * 找出一年当中第几天
- * @param {Date} date 
- * @returns 
- */
-export const dayOfYear = date => Math.floor((date - new Date(date.getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24)

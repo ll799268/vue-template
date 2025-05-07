@@ -3,7 +3,7 @@
  */
 export const isPC = () => {
   const userAgentInfo = navigator.userAgent,
-   Agents = ['Android', 'iPhone', 'SymbianOS', 'Windows Phone', 'iPad', 'iPod'];
+    Agents = ['Android', 'iPhone', 'SymbianOS', 'Windows Phone', 'iPad', 'iPod'];
   let flag = true
   for (let v = 0; v < Agents.length; v++) {
     if (userAgentInfo.indexOf(Agents[v]) > 0) {
@@ -61,7 +61,7 @@ export const checkWeixinQqUc = () => {
  * 判断浏览器类型
  * @returns 1微信、2支付宝
  */
-export const checkBrowser = () => {
+export const checkBrowser1 = () => {
   const ua = window.navigator.userAgent.toLowerCase();
   let typeNum = 0;
   if (ua.indexOf('micromessenger') > 0) {

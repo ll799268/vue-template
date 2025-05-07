@@ -1,7 +1,7 @@
 /**
  * 获得视口的尺寸
  */
- export const getViewportOffset = () => {
+export const getViewportOffset = () => {
   if (window.innerWidth) {
     return {
       w: window.innerWidth,

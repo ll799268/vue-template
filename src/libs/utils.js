@@ -30,7 +30,7 @@ export const download = url => {
  * 网络图片转换为base64
  * @param {*} url
  */
- export const getBase64 = (url, callback) => {
+export const getBase64 = (url, callback) => {
   let Img = new Image(),
     dataURL = ''
 

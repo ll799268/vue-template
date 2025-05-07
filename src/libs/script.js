@@ -2,7 +2,7 @@
  * 动态引入js
  * @param {String} src 
  */
- export const injectScript = src => {
+export const injectScript = src => {
   const s = document.createElement('script')
   s.type = 'text/JavaScript'
   s.async = true

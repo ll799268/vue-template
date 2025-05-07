@@ -17,22 +17,6 @@ export const addEvent = (el, evt, handle) => {
 }
 
 /**
- * 解绑事件的兼容代码
- * @param {Document} el 绑定事件的dom
- * @param {Event} evt 事件类型
- * @param {Function} handle fn事件
- */
-export const addEvent = (el, evt, handle) => {
-  if (el.removeEventListener) { // 非ie和非ie9
-    el.removeEventListener(evt, handle, false)
-  } else if (el.detachEvent) { // ie6到ie8
-    el.detachEvent('on' + evt, handle)
-  } else {
-    el['on' + evt] = null
-  }
-}
-
-/**
  * 取消冒泡的兼容代码
  */
 export const stopBubble = e => {

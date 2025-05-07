@@ -56,7 +56,7 @@ export const getUrlState = URL => {
  * @param {*} width 宽度
  * @param {*} height 高度
  */
- export const openWindow = (url, windowName, width, height) => {
+export const openWindow = (url, windowName, width, height) => {
   const x = parseInt(screen.width / 2.0) - width / 2.0;
   const y = parseInt(screen.height / 2.0) - height / 2.0;
   const isMSIE = navigator.appName == "Microsoft Internet Explorer";
