@@ -71,9 +71,10 @@ export const changeToChinese = Num => {
 
   // 小数点前进行转化
   for (let i = part[0].length - 1; i >= 0; i--) {
+    // 若数量超过拾亿单位，提示
     if (part[0].length > 10) {
-      return ''
-      // 若数量超过拾亿单位，提示
+      console.error('请检查数量超过拾亿单位，提示')
+      return 'max'
     }
     let tmpnewchar = ''
     let perchar = part[0].charAt(i)
@@ -192,14 +193,15 @@ export const changeToChinese = Num => {
     }
   }
   // 替换所有无用汉字
-  while (newchar.search('零零') != -1)
+  while (newchar.search('零零') != -1) {
     newchar = newchar.replace('零零', '零')
-  newchar = newchar.replace('零亿', '亿')
-  newchar = newchar.replace('亿万', '亿')
-  newchar = newchar.replace('零万', '万')
-  newchar = newchar.replace('零元', '元')
-  newchar = newchar.replace('零角', '')
-  newchar = newchar.replace('零分', '')
+    newchar = newchar.replace('零亿', '亿')
+    newchar = newchar.replace('亿万', '亿')
+    newchar = newchar.replace('零万', '万')
+    newchar = newchar.replace('零元', '元')
+    newchar = newchar.replace('零角', '')
+    newchar = newchar.replace('零分', '')
+  }
   if (newchar.charAt(newchar.length - 1) == '元') {
     newchar = newchar + '整'
   }
