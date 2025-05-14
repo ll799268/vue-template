@@ -142,3 +142,19 @@ export const isPromise = o => Object.prototype.toString.call(o).slice(8, -1) ===
  * @param {*} 
  */
 export const isSet = o => Object.prototype.toString.call(o).slice(8, -1) === 'Set'
+
+
+/**
+ * @description 判断字符串是否是base64
+ * @param {string} str
+ */
+export const isBase64 = str => {
+  if (str === '' || str.trim() === '') {
+    return false
+  }
+  try {
+    return btoa(atob(str)) == str
+  } catch (err) {
+    return false
+  }
+};
